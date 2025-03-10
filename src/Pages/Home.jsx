@@ -5,7 +5,7 @@ import AboutSection from "../components/landingPage/AboutSection";
 import Navbar from "../components/Navbar";
 import OurServicesSections from "../components/landingPage/OurServicesSections";
 import ClientsSection from "../components/landingPage/OurClients";
-import Ribbons from "../components/Ribbons";
+
 import ContactUsSection from "../components/landingPage/ContactUsSection";
 
 const Home = () => {
