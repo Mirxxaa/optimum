@@ -1,0 +1,50 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent default scrolling */
+  height: 100vh;
+}
+
+.snap-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  position: relative;
+}
+
+.section {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+}
+
+.fixed-sections-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Add this to your tailwind.config.js to enable smooth scrolling */
+/* 
+  module.exports = {
+    theme: {
+      extend: {
+        scrollBehavior: {
+          smooth: 'smooth',
+        }
+      },
+    },
+    plugins: [
+      require('tailwindcss-scroll-snap')
+    ],
+  }
+  */
