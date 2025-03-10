@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import IntroSection from "../components/landingPage/IntroSection";
-import AboutSection from "../components/landingPage/AboutSection";
+import IntroSection from "../components/landingPage/IntroSection.jsx";
+import AboutSection from "../components/landingPage/AboutSection.jsx";
 import Navbar from "../components/Navbar";
-import OurServicesSections from "../components/landingPage/OurServicesSections";
-import ClientsSection from "../components/landingPage/OurClients";
+import OurServicesSections from "../components/landingPage/OurServicesSections.jsx";
+import ClientsSection from "../components/landingPage/OurClients.jsx";
 
-import ContactUsSection from "../components/landingPage/ContactUsSection";
+import ContactUsSection from "../components/landingPage/ContactUsSection.jsx";
 
 const Home = () => {
   const [currentSection, setCurrentSection] = useState(0);
