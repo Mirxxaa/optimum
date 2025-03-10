@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import IntroSection from "../components/landingPage/IntroSection.jsx";
+import IntroSection from "../components/landingPage/introSection.jsx";
 import AboutSection from "../components/landingPage/AboutSection.jsx";
 import Navbar from "../components/Navbar";
 import OurServicesSections from "../components/landingPage/OurServicesSections.jsx";
