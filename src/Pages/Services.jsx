@@ -3,7 +3,7 @@ import { section } from "framer-motion/client";
 import React from "react";
 import ManpowerImage from "../assets/Images/Manpower.png";
 import ServicesCardSlider from "../components/ServicesCardSlider";
-import ProfessionalServicesImg from "../assets/Images/professional_services.png";
+import ProfessionalServicesImg from "../assets/Images/professionalServices.png";
 import AutoCounter from "../components/AutoCounter";
 import ExecutiveRecruitment from "../assets/Images/Executive_Recruitment.png";
 import RecruitmentServicesImage from "../assets/Images/Recruitment.png";
