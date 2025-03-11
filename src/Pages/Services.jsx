@@ -1,7 +1,7 @@
 // src/Pages/Home.jsx
 import { section } from "framer-motion/client";
 import React from "react";
-import ManpowerImage from "../assets/Images/manpower.png";
+import ManpowerImage from "../assets/Images/Manpower.png";
 import ServicesCardSlider from "../components/ServicesCardSlider";
 import ProfessionalServicesImg from "../assets/Images/professional_services.png";
 import AutoCounter from "../components/AutoCounter";
