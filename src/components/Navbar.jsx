@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../assets/Logo/Original_logo.png";
+import { Link as RouterLink } from "react-router-dom"; // Renamed to avoid confusion
 
 const NavigationBar = ({ showNavbar = false }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,13 +24,13 @@ const NavigationBar = ({ showNavbar = false }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Menu links
+  // Menu links with proper routes
   const menuLinks = [
-    { name: "Home", url: "#" },
-    { name: "About Us", url: "#about" },
-    { name: "Our Services", url: "#services" },
-    { name: "Careers", url: "#careers" },
-    { name: "Contact Us", url: "#contact" },
+    { name: "Home", url: "/" },
+    { name: "About Us", url: "/about" },
+    { name: "Our Services", url: "/services" },
+    { name: "Careers", url: "/careers" },
+    { name: "Contact Us", url: "/contact" },
   ];
 
   // Language options
@@ -60,15 +61,17 @@ const NavigationBar = ({ showNavbar = false }) => {
       >
         {/* Logo */}
         <div className="flex items-center w-48">
-          <img src={Logo} alt="Optimum Logo" />
+          <RouterLink to="/">
+            <img src={Logo} alt="Optimum Logo" />
+          </RouterLink>
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
           {menuLinks.map((link) => (
-            <a
+            <RouterLink
               key={link.name}
-              href={link.url}
+              to={link.url}
               className={`font-medium transition-colors duration-300 ${
                 scrolled
                   ? "text-gray-800 hover:text-blue-700"
@@ -76,7 +79,7 @@ const NavigationBar = ({ showNavbar = false }) => {
               }`}
             >
               {link.name}
-            </a>
+            </RouterLink>
           ))}
         </div>
 
@@ -221,17 +224,20 @@ const NavigationBar = ({ showNavbar = false }) => {
               <div className="px-6 py-4 flex-1">
                 <div className="flex flex-col space-y-6">
                   {menuLinks.map((link, index) => (
-                    <motion.a
+                    <motion.div
                       key={link.name}
-                      href={link.url}
-                      onClick={() => setIsOpen(false)}
-                      className="text-gray-800 hover:text-blue-700 font-medium text-lg"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
                     >
-                      {link.name}
-                    </motion.a>
+                      <RouterLink
+                        to={link.url}
+                        onClick={() => setIsOpen(false)}
+                        className="text-gray-800 hover:text-blue-700 font-medium text-lg"
+                      >
+                        {link.name}
+                      </RouterLink>
+                    </motion.div>
                   ))}
                 </div>
               </div>

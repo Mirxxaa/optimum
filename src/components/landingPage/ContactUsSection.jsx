@@ -42,7 +42,7 @@ const ContactUsSection = () => {
   };
 
   return (
-    <section className=" bg-white flex items-center justify-center py-10 md:py-16 px-4 w-full  m-auto">
+    <section className=" bg-white h-screen flex items-center justify-center py-10 md:py-16 px-4 w-full  m-auto">
       <div className=" mt-10 flex flex-col md:flex-row items-start">
         <div className="p-6 md:p-8 w-full  md:w-1/2">
           <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#1974B8] font-semibold mb-4">

@@ -99,7 +99,7 @@ const Home = () => {
       {/* Navbar with animation - only render when not on the first section */}
       {currentSection > 0 && <Navbar showNavbar={true} />}
 
-      <div className="fixed-sections-container h-screen w-full overflow-hidden">
+      <div className="fixed-sections-container h-screen w-full ">
         {/* The first section stays fixed in place */}
         <div className="fixed top-0 left-0 w-full h-full">{sections[0]}</div>
 

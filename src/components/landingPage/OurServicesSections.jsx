@@ -1,10 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const OurServicesSection = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const sliderRef = useRef(null);
+
+  const navigate = useNavigate();
 
   // Services data
   const services = [
@@ -144,12 +148,27 @@ const OurServicesSection = () => {
   return (
     <div className="w-full h-screen flex items-center justify-center py-4 bg-gradient-to-br from-[#D7F0FF] to-white">
       <div className="w-full mx-auto h-screen mt-60">
-        <h2 className="text-3xl md:text-4xl text-[#1974B8] font-semibold mb-4 tracking-wider text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl text-[#1974B8] font-semibold mb-4 tracking-wider text-center"
+        >
           Our Services
-        </h2>
+        </motion.h2>
 
-        <div className="relative px-4 md:px-8">
-          <div
+        <motion.dev
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="relative px-4 md:px-8"
+        >
+          <motion.dev
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             ref={sliderRef}
             className={`flex gap-6 overflow-x-auto py-6 px-2 ${
               isDragging ? "cursor-grabbing" : "cursor-grab"
@@ -191,6 +210,7 @@ const OurServicesSection = () => {
                   <a
                     href={service.link}
                     className="text-white select-none  font-medium hover:underline flex items-center transition-all duration-300 ease-out hover:translate-x-1"
+                    onClick={() => navigate("/services")}
                   >
                     Learn More
                     <svg
@@ -209,7 +229,7 @@ const OurServicesSection = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.dev>
 
           {/* Navigation arrows with enhanced animations */}
           <div className="flex justify-center gap-4 mt-8">
@@ -250,7 +270,7 @@ const OurServicesSection = () => {
               </svg>
             </button>
           </div>
-        </div>
+        </motion.dev>
       </div>
     </div>
   );
