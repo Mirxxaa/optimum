@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 
+import Iridescence from "../components/Iridescence";
 const Careers = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -55,17 +56,19 @@ const Careers = () => {
   };
 
   return (
-    <div>
-      <div
-        className="absolute flex items-center m-12  z-100    hover:text-[#BBA14E]  cursor-pointer transition duration-200 text-[#1974B8]  rounded-full "
-        onClick={handleClick}
-      >
-        <IoIosArrowBack /> Home
+    <div className="w-full h-[80vh] rounded-t-4xl absolute bottom-0 bg-white  ">
+      <div className="w-full h-screen z-[-100] absolute bottom-0 ">
+        <Iridescence
+          color={[0, 0, 0.8]}
+          mouseReact={true}
+          amplitude={0.1}
+          speed={1.0}
+        />
       </div>
-      <section className="bg-white flex items-center justify-center py-10 md:py-16 px-4 w-full m-auto">
+      <section className=" flex items-center justify-center py-10 md:py-16 px-4 w-[80vw] m-auto">
         <div className="mt-10 flex flex-col md:flex-row items-start">
           <div className="p-6 md:p-8 w-full md:w-1/2">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#1974B8] font-semibold mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-blue-700 font-semibold mb-4">
               Apply for a Job
             </h2>
             <div className="h-1 w-24 bg-[#BBA14E] rounded-full"></div>
@@ -94,7 +97,7 @@ const Careers = () => {
                     required
                     className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none ${
                       focusedField === "name"
-                        ? "border-[#1974B8] shadow-md"
+                        ? "border-blue-700 shadow-md"
                         : "border-gray-300"
                     }`}
                     placeholder=" "
@@ -103,7 +106,7 @@ const Careers = () => {
                     htmlFor="name"
                     className={`absolute left-4 transition-all duration-300 pointer-events-none ${
                       focusedField === "name" || formData.name
-                        ? "text-xs text-[#1974B8] -top-2 bg-white px-1"
+                        ? "text-xs text-blue-700 -top-2 bg-white px-1"
                         : "text-gray-500 top-3"
                     }`}
                   >
@@ -124,7 +127,7 @@ const Careers = () => {
                     required
                     className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none ${
                       focusedField === "email"
-                        ? "border-[#1974B8] shadow-md"
+                        ? "border-blue-700 shadow-md"
                         : "border-gray-300"
                     }`}
                     placeholder=" "
@@ -133,7 +136,7 @@ const Careers = () => {
                     htmlFor="email"
                     className={`absolute left-4 transition-all duration-300 pointer-events-none ${
                       focusedField === "email" || formData.email
-                        ? "text-xs text-[#1974B8] -top-2 bg-white px-1"
+                        ? "text-xs text-blue-700 -top-2 bg-white px-1"
                         : "text-gray-500 top-3"
                     }`}
                   >
@@ -154,7 +157,7 @@ const Careers = () => {
                     required
                     className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none ${
                       focusedField === "phone"
-                        ? "border-[#1974B8] shadow-md"
+                        ? "border-blue-700 shadow-md"
                         : "border-gray-300"
                     }`}
                     placeholder=" "
@@ -163,7 +166,7 @@ const Careers = () => {
                     htmlFor="phone"
                     className={`absolute left-4 transition-all duration-300 pointer-events-none ${
                       focusedField === "phone" || formData.phone
-                        ? "text-xs text-[#1974B8] -top-2 bg-white px-1"
+                        ? "text-xs text-blue-700 -top-2 bg-white px-1"
                         : "text-gray-500 top-3"
                     }`}
                   >
@@ -194,7 +197,7 @@ const Careers = () => {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-[#1974B8] text-white font-medium rounded-lg shadow-md hover:bg-[#BBA14E] focus:outline-none focus:ring-2 focus:ring-[#1974B8] focus:ring-opacity-50 transform transition-all duration-300 hover:cursor-pointer hover:shadow-lg"
+                    className="w-full px-6 py-3 bg-blue-700 text-white font-medium rounded-lg shadow-md hover:bg-[#BBA14E] focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 transform transition-all duration-300 hover:cursor-pointer hover:shadow-lg"
                   >
                     Submit Application
                   </button>

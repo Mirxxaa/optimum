@@ -3,6 +3,7 @@ import React from "react";
 import ContactUsSection from "../components/landingPage/ContactUsSection";
 import FooterSection from "../components/landingPage/FooterSection";
 import { useNavigate } from "react-router-dom";
+import Iridescence from "../components/Iridescence";
 import { IoIosArrowBack } from "react-icons/io";
 
 const Contact = () => {
@@ -11,20 +12,17 @@ const Contact = () => {
     navigate("/"); // This will navigate to /home
   };
   return (
-    <div>
-      <div>
-        <div
-          className="absolute flex items-center m-12  z-100    hover:text-[#BBA14E]  cursor-pointer transition duration-200 text-[#1974B8]  rounded-full "
-          onClick={handleClick}
-        >
-          <IoIosArrowBack /> Home
-        </div>
+    <div className="w-full h-[80vh] rounded-t-4xl absolute bottom-0 bg-white  ">
+      <div className="w-full h-screen z-[-100] absolute bottom-0 ">
+        <Iridescence
+          color={[0, 0, 0.8]}
+          mouseReact={true}
+          amplitude={0.1}
+          speed={1.0}
+        />
       </div>
-      <section>
+      <section className="w-full h-screen z-100">
         <ContactUsSection />
-      </section>
-      <section>
-        <FooterSection />
       </section>
     </div>
   );
