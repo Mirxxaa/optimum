@@ -29,7 +29,7 @@ const FooterSection = () => {
             <div className="">
               <div>
                 <div className="flex flex-col gap-4">
-                  <h2 className="font-bold mb-2 text-lg">Our Offices</h2>
+                  <h2 className="font-bold mb-2 text-lg">Our Office</h2>
                   <div>
                     <h3 className="font-semibold mb-1">Riyadh</h3>
                     <p>P.O. Box: 6633, Riyadh, Kingdome of Saudi Arabia</p>
