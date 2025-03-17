@@ -42,24 +42,26 @@ const ContactUsSection = () => {
   };
 
   return (
-    <section className=" bg-white h-screen flex items-center justify-center py-10 md:py-16 px-4 w-full  m-auto">
-      <div className=" mt-10 flex flex-col md:flex-row items-start">
+    <section className=" overflow-scroll bg-white lg:h-[80vh] md:h-[80vh] sm:h-[80vh] h-[85vh] absolute bottom-0 rounded-t-4xl flex items-center justify-center py-10 md:py-16 px-4 w-full  m-auto">
+      <div className=" absolute top-0 flex flex-col md:flex-row items-start">
         <div className="p-6 md:p-8 w-full  md:w-1/2">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#1974B8] font-semibold mb-4">
-            Get In Touch
-          </h2>
+          <div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-blue-700 font-semibold mb-4">
+              Get In Touch
+            </h2>
+          </div>
           <div className="h-1 w-24 bg-[#BBA14E] rounded-full"></div>
-          <p className="mt-6 text-base sm:text-lg text-gray-600 w-full md:w-4/5">
+          <p className="mt-4 text-base sm:text-lg text-gray-600 w-full md:w-4/5">
             Have a question or want to work together? Drop us a message and
             we'll get back to you as soon as possible.
           </p>
 
           {/* Contact Information */}
-          <div className="mt-10 space-y-4">
+          <div className="mt-6 space-y-4">
             <div className="flex items-center space-x-4">
               <div className="flex-shrink-0 bg-[#1974B8]/10 p-3 rounded-full">
                 <svg
-                  className="w-6 h-6 text-[#1974B8]"
+                  className="w-6 h-6 text-blue-700"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -75,14 +77,14 @@ const ContactUsSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-medium text-gray-900">Email</h4>
-                <p className="text-gray-600">info@optibsc.com</p>
+                <p className="text-gray-600">connect@optibsc.com</p>
               </div>
             </div>
 
             <div className="flex items-center space-x-4">
               <div className="flex-shrink-0 bg-[#1974B8]/10 p-3 rounded-full">
                 <svg
-                  className="w-6 h-6 text-[#1974B8]"
+                  className="w-6 h-6 text-blue-700"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -98,15 +100,15 @@ const ContactUsSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-medium text-gray-900">Phone</h4>
-                <p className="text-gray-600">+966 50 217 1947</p>
+                <p className="text-gray-600">+966 54 964 1403</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="w-full md:w-1/2 p-6 md:p-8">
-          <div className="bg-white w-full rounded-xl shadow-md p-4 md:p-8 transform transition-all duration-300 hover:shadow-lg">
-            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
+        <div className="w-full md:w-1/2 p-4 md:p-8">
+          <div className="bg-white w-full rounded-xl   md:p-8 transform transition-all duration-300">
+            <h3 className="text-xl md:text-2xl font-bold text-blue-700 mb-4">
               Send Us a Message
             </h3>
 
@@ -123,7 +125,7 @@ const ContactUsSection = () => {
                   required
                   className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none ${
                     focusedField === "name"
-                      ? "border-[#1974B8] shadow-md"
+                      ? "border-blue-700 shadow-md"
                       : "border-gray-300"
                   }`}
                   placeholder=" "
@@ -132,7 +134,7 @@ const ContactUsSection = () => {
                   htmlFor="name"
                   className={`absolute left-4 transition-all duration-300 pointer-events-none ${
                     focusedField === "name" || formData.name
-                      ? "text-xs text-[#1974B8] -top-2 bg-white px-1"
+                      ? "text-xs text-blue-700 -top-2 bg-white px-1"
                       : "text-gray-500 top-3"
                   }`}
                 >
@@ -152,7 +154,7 @@ const ContactUsSection = () => {
                   required
                   className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none ${
                     focusedField === "email"
-                      ? "border-[#1974B8] shadow-md"
+                      ? "border-blue-700 shadow-md"
                       : "border-gray-300"
                   }`}
                   placeholder=" "
@@ -161,7 +163,7 @@ const ContactUsSection = () => {
                   htmlFor="email"
                   className={`absolute left-4 transition-all duration-300 pointer-events-none ${
                     focusedField === "email" || formData.email
-                      ? "text-xs text-[#1974B8] -top-2 bg-white px-1"
+                      ? "text-xs text-blue-700 -top-2 bg-white px-1"
                       : "text-gray-500 top-3"
                   }`}
                 >
@@ -181,7 +183,7 @@ const ContactUsSection = () => {
                   required
                   className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none ${
                     focusedField === "subject"
-                      ? "border-[#1974B8] shadow-md"
+                      ? "border-blue-700 shadow-md"
                       : "border-gray-300"
                   }`}
                   placeholder=" "
@@ -190,7 +192,7 @@ const ContactUsSection = () => {
                   htmlFor="subject"
                   className={`absolute left-4 transition-all duration-300 pointer-events-none ${
                     focusedField === "subject" || formData.subject
-                      ? "text-xs text-[#1974B8] -top-2 bg-white px-1"
+                      ? "text-xs text-blue-700 -top-2 bg-white px-1"
                       : "text-gray-500 top-3"
                   }`}
                 >
@@ -210,7 +212,7 @@ const ContactUsSection = () => {
                   rows="4"
                   className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none resize-none ${
                     focusedField === "message"
-                      ? "border-[#1974B8] shadow-md"
+                      ? "border-blue-700 shadow-md"
                       : "border-gray-300"
                   }`}
                   placeholder=" "
@@ -219,7 +221,7 @@ const ContactUsSection = () => {
                   htmlFor="message"
                   className={`absolute left-4 transition-all duration-300 pointer-events-none ${
                     focusedField === "message" || formData.message
-                      ? "text-xs text-[#1974B8] -top-2 bg-white px-1"
+                      ? "text-xs text-blue-700 -top-2 bg-white px-1"
                       : "text-gray-500 top-3"
                   }`}
                 >
@@ -230,7 +232,7 @@ const ContactUsSection = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-[#1974B8] text-white font-medium rounded-lg shadow-md hover:bg-[#BBA14E] focus:outline-none focus:ring-2 focus:ring-[#1974B8] focus:ring-opacity-50 transform transition-all duration-300 hover:cursor-pointer hover:shadow-lg"
+                  className="w-full px-6 mb-8 py-3 bg-blue-700 text-white font-medium rounded-lg shadow-md hover:bg-[#BBA14E] focus:outline-none focus:ring-2 focus:ring-[#1974B8] focus:ring-opacity-50 transform transition-all duration-300 hover:cursor-pointer hover:shadow-lg"
                 >
                   Send Message
                 </button>

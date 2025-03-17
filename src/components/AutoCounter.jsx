@@ -49,7 +49,7 @@ const AutoCounter = () => {
 
   return (
     <div ref={counterRef} className="counter-container ">
-      <h1 className="text-6xl text-[#1974B8] font-semibold">{count}+ </h1>
+      <h1 className="text-6xl text-blue-700 font-semibold">{count}+ </h1>
     </div>
   );
 };

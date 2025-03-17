@@ -83,7 +83,7 @@ const ServicesCardSlider = () => {
                 key={service.id}
                 className="relative flex-none w-full sm:w-1/2 md:w-1/3 p-3 transition-all duration-300"
               >
-                <div className="bg-white select-none rounded-lg shadow-lg h-full overflow-hidden group">
+                <div className="bg-white select-none rounded-lg  border border-gray-200 h-full overflow-hidden group">
                   <div className="relative h-64">
                     <img
                       src={service.image}
@@ -112,7 +112,7 @@ const ServicesCardSlider = () => {
         {/* Navigation buttons */}
         <button
           onClick={prevSlide}
-          className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-0 md:-translate-x-6 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-10 hover:bg-gray-100 transition-all duration-300"
+          className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-0 md:-translate-x-6 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-10 hover:bg-[#bba14e] hover:text-white cursor-pointer transition-all duration-300"
           aria-label="Previous slide"
         >
           <svg
@@ -132,7 +132,7 @@ const ServicesCardSlider = () => {
         </button>
         <button
           onClick={nextSlide}
-          className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-0 md:translate-x-6 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-10 hover:bg-gray-100 transition-all duration-300"
+          className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-0 md:translate-x-6 bg-white  rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-10 hover:bg-[#bba14e] hover:text-white cursor-pointer transition-all duration-300"
           aria-label="Next slide"
         >
           <svg
@@ -157,8 +157,8 @@ const ServicesCardSlider = () => {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`mx-1 w-3 h-3 rounded-full ${
-                index === currentIndex ? "bg-blue-600" : "bg-gray-300"
+              className={`mx-1 w-3 h-3 rounded-full  cursor-pointer ${
+                index === currentIndex ? "bg-[#bba14e]" : "bg-gray-300"
               } transition-colors duration-300`}
               aria-label={`Go to slide ${index + 1}`}
             />

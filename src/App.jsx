@@ -13,7 +13,7 @@ function App() {
     <Router>
       <ScrollProvider>
         {/* Navbar is included here so it appears on all pages */}
-        <Navbar />
+        <Navbar showNavbar={true} />
 
         <Routes>
           <Route path="/" element={<Home />} />

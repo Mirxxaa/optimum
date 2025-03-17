@@ -66,7 +66,7 @@ const Careers = () => {
         <div className="mt-10 flex flex-col md:flex-row items-start">
           <div className="p-6 md:p-8 w-full md:w-1/2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#1974B8] font-semibold mb-4">
-              Apply for a Position
+              Apply for a Job
             </h2>
             <div className="h-1 w-24 bg-[#BBA14E] rounded-full"></div>
             <p className="mt-6 text-base sm:text-lg text-gray-600 w-full md:w-4/5">

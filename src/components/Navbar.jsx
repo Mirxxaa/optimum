@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Logo from "../assets/Logo/Original_logo.png";
-import { Link as RouterLink } from "react-router-dom"; // Renamed to avoid confusion
+import Logo from "../assets/Logo/NavLogo.png";
+import { Link as RouterLink } from "react-router-dom";
 
 const NavigationBar = ({ showNavbar = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
-  const [language, setLanguage] = useState("en"); // 'en' for English, 'ar' for Arabic
+  const [language, setLanguage] = useState("en");
   const [scrolled, setScrolled] = useState(false);
 
   // Handle scroll effect
@@ -52,9 +52,15 @@ const NavigationBar = ({ showNavbar = false }) => {
     <>
       {/* Main navigation bar */}
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 px-18 py-4 flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "backdrop-blur-sm shadow-md" : "bg-white"
+        className={`fixed top-0 left-0 right-0 z-50 lg:px-18  md:px-12 sm:px-8 px-8  py-8 flex items-center justify-between transition-all duration-300 ${
+          scrolled ? "bg-blue-700" : "bg-transparent"
         }`}
+        style={{
+          backgroundColor: scrolled ? "#1d4ed8" : "transparent",
+          boxShadow: scrolled
+            ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+            : "none",
+        }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -74,8 +80,8 @@ const NavigationBar = ({ showNavbar = false }) => {
               to={link.url}
               className={`font-medium transition-colors duration-300 ${
                 scrolled
-                  ? "text-gray-800 hover:text-blue-700"
-                  : "text-black hover:text-blue-700"
+                  ? "text-white hover:text-[#CEB775]"
+                  : "text-white hover:text-[#BAA04E]"
               }`}
             >
               {link.name}
@@ -89,8 +95,8 @@ const NavigationBar = ({ showNavbar = false }) => {
             onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
             className={`flex items-center space-x-1 font-medium cursor-pointer ${
               scrolled
-                ? "text-gray-800 hover:text-blue-700"
-                : "text-black hover:text-blue-700"
+                ? "text-white hover:text-white"
+                : "text-white hover:text-white"
             }`}
           >
             <svg
@@ -171,7 +177,9 @@ const NavigationBar = ({ showNavbar = false }) => {
         {/* Mobile menu button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`md:hidden flex flex-col space-y-1.5 focus:outline-none text-gray-800`}
+          className={`md:hidden flex flex-col space-y-1.5 focus:outline-none ${
+            scrolled ? "text-white" : "text-white"
+          }`}
         >
           <motion.span
             animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
@@ -196,7 +204,7 @@ const NavigationBar = ({ showNavbar = false }) => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 20 }}
-            className="fixed top-0 right-0 h-full w-4/5 bg-white z-50 shadow-xl"
+            className="fixed top-0 right-0 h-full w-4/5 bg-white z-100 shadow-xl"
           >
             <div className="flex flex-col h-full">
               <div className="flex justify-end p-6">
