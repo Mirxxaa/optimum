@@ -1,4 +1,5 @@
 import React from "react";
+import Marquee from "react-fast-marquee";
 import Client1 from "../assets/Logo/Clients/Beta.png";
 import Client2 from "../assets/Logo/Clients/Connect.png";
 import Client3 from "../assets/Logo/Clients/Elenjical.png";
@@ -10,65 +11,43 @@ import Client8 from "../assets/Logo/Clients/Remote.png";
 import Client9 from "../assets/Logo/Clients/Smart.png";
 import Client10 from "../assets/Logo/Clients/Teamed.png";
 import Client11 from "../assets/Logo/Clients/ZafranValley.png";
-import Marquee from "react-fast-marquee";
+
+const clientLogos = [
+  { id: 1, image: Client1, alt: "Beta Consultant" },
+  { id: 2, image: Client2, alt: "Connect" },
+  { id: 3, image: Client3, alt: "Elenjical" },
+  { id: 4, image: Client4, alt: "G" },
+  { id: 5, image: Client5, alt: "GRC" },
+  { id: 6, image: Client6, alt: "Info" },
+  { id: 7, image: Client7, alt: "Meril" },
+  { id: 8, image: Client8, alt: "Remote" },
+  { id: 9, image: Client9, alt: "Smart" },
+  { id: 10, image: Client10, alt: "Teamed" },
+  { id: 11, image: Client11, alt: "Zafran Valley" },
+];
 
 const ClientSlider = () => {
   return (
-    <div>
-      <Marquee speed={100} className="flex gap-50">
-        <div className="flex items-center gap-30">
-          <div className=" flex items-center justify-center ">
-            <img src={Client1} alt="Beta Consultant" className="h-25 w-auto" />{" "}
-          </div>
-          <div className=" flex items-center justify-center ">
-            {" "}
-            <img src={Client2} alt="Client Logo" className="h-25 w-auto" />{" "}
-          </div>
-          <div className=" flex items-center justify-center ">
-            {" "}
-            <img src={Client3} alt="Client Logo" className="h-25 w-auto" />{" "}
-          </div>
-          <div className=" flex items-center justify-center ">
-            {" "}
-            <img src={Client4} alt="Client Logo" className="h-25 w-auto" />{" "}
-          </div>
-          <div className=" flex items-center justify-center ">
-            {" "}
-            <img src={Client5} alt="Client Logo" className="h-25 w-auto" />{" "}
-          </div>
-          <div className=" flexitems-center justify-center ">
-            {" "}
-            <img src={Client6} alt="Client Logo" className="h-25 w-auto" />{" "}
-          </div>
-          <div className=" flex items-center justify-center ">
-            {" "}
-            <img src={Client7} alt="Client Logo" className="h-25 w-auto" />{" "}
-          </div>
-          <div className=" flex items-center justify-center ">
-            {" "}
-            <img src={Client8} alt="Client Logo" className="h-25 w-auto" />{" "}
-          </div>
-          <div className=" flex  items-center justify-center ">
-            {" "}
-            <img src={Client9} alt="Client Logo" className="h-25 w-auto" />{" "}
-          </div>
-          <div className=" flex   items-center justify-center ">
-            {" "}
+    <div className="w-full ">
+      <Marquee
+        speed={50}
+        loop={0}
+        gradient={false}
+        pauseOnHover={true}
+        className="flex items-center"
+      >
+        {clientLogos.map((client) => (
+          <div
+            key={client.id}
+            className="flex items-center justify-center mx-6"
+          >
             <img
-              src={Client10}
-              alt="Client Logo"
-              className="h-25 w-auto"
-            />{" "}
+              src={client.image}
+              alt={client.alt}
+              className="h-10 sm:h-12 md:h-16 w-auto drop-shadow-md"
+            />
           </div>
-          <div className=" flex    items-center justify-center ">
-            {" "}
-            <img
-              src={Client11}
-              alt="Client Logo"
-              className="h-25 w-auto"
-            />{" "}
-          </div>
-        </div>
+        ))}
       </Marquee>
     </div>
   );

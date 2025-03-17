@@ -10,7 +10,6 @@ import { PiBuildingsFill } from "react-icons/pi";
 import Saudization from "../assets/Images/Saudization.jpeg";
 import { motion } from "framer-motion";
 import FooterSection from "../components/landingPage/FooterSection";
-
 import Iridescence from "../components/Iridescence";
 import AutoCounter from "../components/AutoCounter";
 import ClientCounter from "../components/ClientCounter";
@@ -30,8 +29,8 @@ const About = () => {
   };
 
   return (
-    <div className="w-full h-[80vh] bg-white absolute bottom-0 rounded-t-4xl">
-      <div className="w-full h-screen z-[-100] absolute bottom-0 ">
+    <div className="w-full lg:h-[80vh] h-[70vh]  bg-white absolute bottom-0 rounded-t-4xl">
+      <div className="w-full h-screen z-[-100] absolute bottom-0">
         <Iridescence
           color={[0, 0, 0.8]}
           mouseReact={true}
@@ -45,10 +44,10 @@ const About = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="w-[80vw] my-20 items-center justify-center m-auto flex flex-col"
+        className="lg:w-[80vw] w-full my-20 items-center justify-center m-auto flex flex-col"
       >
         <div className="">
-          <div className="  items-center  flex flex-col justify-center text-black">
+          <div className=" px-4 items-center  flex flex-col justify-center text-black">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -56,7 +55,7 @@ const About = () => {
               viewport={{ once: true }}
               className="flex gap-10 items-center mb-4"
             >
-              <h1 className="text-4xl font-bold text-blue-700">
+              <h1 className="lg:text-4xl text-2xl font-bold text-blue-700">
                 ABOUT OPTIMUM
               </h1>
             </motion.div>
@@ -65,7 +64,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-center text-xl w-full lg:w-1/2 sm:w-full md:w-full "
+              className="text-center lg:text-xl w-full lg:w-1/2 sm:w-full md:w-full "
             >
               Established in 2021, Optimum Business Solutions offers a range of
               professional and business services in the Kingdom of Saudi Arabia
@@ -73,8 +72,8 @@ const About = () => {
               includes over 15 clients across various industries.
             </motion.p>
           </div>
-          <div className="flex justify-between text-black/70 gap-18 text-center mt-8">
-            <div className=" p-6 rounded-2xl flex flex-col justify-center items-center ">
+          <div className="lg:flex justify-between text-black/70 gap-18 text-center mt-8">
+            <div className=" p-6 rounded-2xl flex flex-col  justify-center items-center ">
               <div className="text-3xl bg-blue-500 p-6 text-white rounded-full my-8">
                 <CgSearchFound />
               </div>
@@ -118,7 +117,7 @@ const About = () => {
         viewport={{ once: true }}
         className="h-auto my-16 p-8 flex items-center justify-center bg-white "
       >
-        <div className="flex w-[80vw] m-auto  gap-20 justify-center items-center">
+        <div className="lg:flex flex flex-col lg:flex-row  w-[80vw] m-auto  gap-20 justify-center items-center">
           {/* Our Vision */}
           <div className="">
             <motion.div className="w-[350px]  hover:shadow-xl shadow-blue-700/20 transition-all duration-300 bg-blue-50 flex flex-col items-center justify-center  p-8 rounded-2xl">
@@ -191,8 +190,8 @@ const About = () => {
       <motion.section>
         <div>
           {/* Our Values */}
-          <div className="w-[80vw] h-auto m-auto justify-center ">
-            <motion.div className="flex  items-center justify-center   rounded-2xl">
+          <div className="lg:w-[80vw] h-auto m-auto justify-center ">
+            <motion.div className="lg:flex   items-center justify-center   rounded-2xl">
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -207,12 +206,12 @@ const About = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="  p-4"
+                className="p-4 "
               >
-                <h2 className="text-2xl my-3 font-semibold text-blue-700">
+                <h2 className="text-2xl my-3 text-center lg:text-left md:text-left sm:text-center font-semibold text-blue-700">
                   OUR VALUES
                 </h2>
-                <ul className=" flex flex-col gap-8 text-md my-8 text-justify">
+                <ul className=" flex flex-col gap-8 p-4 text-md my-8 text-justify">
                   <li>
                     1. Integrity: We uphold the highest standards of honesty and
                     transparency, ensuring compliance in all our dealings to
@@ -240,37 +239,46 @@ const About = () => {
           </div>
         </div>
       </motion.section>
-      <motion.section className="w-full max-h-[300px] flex items-center justify-center">
+      <motion.section className="w-full max-h-[300px]  flex  items-center justify-center">
         <motion.div className="w-[80vw] h-[200px] flex items-center ">
           <div className="flex items-center justify-evenly w-full">
-            <div className="flex flex-col gap-4 items-center justify-center">
+            <div className="flex flex-col gap-2 items-center justify-center">
               <AutoCounter />
-              <p className="text-2xl text-black/60">Employees</p>
+              <p className="lg:text-2xl md:text-2xl sm:text-sm text-sm text-black/60">
+                Employees
+              </p>
             </div>
-            <div className="flex flex-col gap-4 items-center justify-center">
+            <div className="flex flex-col gap-2 items-center justify-center">
               <ClientCounter />
-              <p className="text-2xl text-black/60"> Clients</p>
+              <p className="lg:text-2xl md:text-2xl sm:text-sm text-sm text-black/60">
+                {" "}
+                Clients
+              </p>
             </div>
-            <div className="flex flex-col gap-4 items-center justify-center">
+            <div className="flex flex-col gap-2 items-center justify-center">
               <GrowthCounter />
-              <p className="text-2xl text-black/60"> Growth</p>
+              <p className="lg:text-2xl md:text-2xl sm:text-sm text-sm text-black/60">
+                {" "}
+                Growth
+              </p>
             </div>
           </div>
         </motion.div>
       </motion.section>
-      <motion.section className="h-screen flex flex-col  justify-center w-full">
-        <motion.div className="h-[50vh] bg-[#BAA04E]   flex items-center justify-center">
-          <motion.div className="flex w-[80vw]  items-center bg-blue-700   gap-10 justify-evenly ">
-            <motion.div className="flex flex-col text-white px-8  items-left justify-center">
+      <motion.section className="h-screen lg:flex lg:flex-col  lg:justify-center  w-full">
+        <motion.div className="lg:flex lg:items-center lg:justify-center">
+          <div className="w-full absolute bg-[#BAA04E] h-screen lg:h-[30vh] z-[-100]"></div>
+          <motion.div className="lg:flex  lg:w-[80vw] w-full lg:h-[60vh] lg:items-center bg-blue-700 overflow-hidden  justify-evenly ">
+            <motion.div className="flex flex-col text-white px-8  items-left justify-center  lg:text-left md:text-left sm:text-center text-center  ">
               <h2 className="text-2xl font-semibold  my-4">
                 WHAT SETS US APART?
               </h2>
-              <p className=" text-left ">
+              <p className=" lg:text-left md:text-left sm:text-center text-center  ">
                 We offer customized, market-oriented solutions that not only
                 adhere to Saudi regulations but also enhance operational
                 excellence. Our commitment to understanding our clients' unique
                 needs enables us to deliver effective strategies that drive
-                success in a competitive landscape
+                success in a competitive landscape.
               </p>
             </motion.div>
             <motion.div className="flex items-center  justify-center ">
@@ -284,18 +292,18 @@ const About = () => {
         </motion.div>
       </motion.section>
 
-      <motion.section className="max-h-[500px] h-screen  flex">
+      <motion.section className="max-h-[500px] h-screen lg:my-0 my-10 flex">
         <motion.div className="w-[80vw] m-auto flex items-center justify-center ">
-          <motion.div className="flex items-center justify-center gap-12 flex-col text-black/70">
+          <motion.div className="flex items-center justify-center lg:gap-8  flex-col text-black/70">
             <div className="flex flex-col items-center">
-              <h1 className="text-4xl mb-4 font-semibold text-blue-700">
+              <h1 className="lg:text-4xl text-2xl mb-2 font-semibold text-blue-700">
                 INDUSTRIES WE SERVE
               </h1>
               <p className="w-full text-xl text-center ">
                 We support businesses in diverse sectors, including
               </p>
             </div>
-            <motion.div className="flex flex-wrap w-full justify-evenly items-center my-8  ">
+            <motion.div className="lg:flex lg:flex-wrap grid grid-cols-2 lg:gap-0 gap-8 w-full justify-evenly items-center my-8  ">
               <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={FinanceIcon} alt="" className="" />
@@ -337,20 +345,24 @@ const About = () => {
         </motion.div>
       </motion.section>
 
-      <motion.section className="h-auto my-12">
-        <div className="w-[80vw] flex gap-10 items-center m-auto">
-          <div className="w-full relative">
-            <div className="bg-blue-500 absolute w-[50vw] z-[-10] h-[10vh]"></div>
+      <motion.section className="h-screen ">
+        <div className="lg:w-[80vw]  lg:flex gap-10 mt-20 lg:mt-0 items-center m-auto">
+          <div className="w-full relative ">
+            <div className="bg-blue-500 absolute lg:w-[50vw] z-[-10] h-[10vh]"></div>
             <div className="bg-[#bba14e] absolute bottom-0 w-[60vw] h-[10vh]"></div>
-            <div className="w-full h-full rounded-tr-4xl  overflow-hidden">
-              <img src={Saudization} alt="" />
+            <div className="lg:w-full lg:h-full   rounded-tr-4xl flex items-center justify-center   overflow-hidden">
+              <img
+                src={Saudization}
+                alt=""
+                className="w-[80vw] lg:w-full md:w-full sm:w-[80vw]"
+              />
             </div>
           </div>
-          <div className="w-full justify-center items-center  ">
-            <h2 className="text-2xl font-semibold text-blue-500 mb-4">
+          <div className="w-full  justify-center items-center lg:p-0 p-6">
+            <h2 className="lg:text-2xl text-xl lg:text-left text-center font-semibold text-blue-500 mb-4">
               Commitment to Saudization & Compliance
             </h2>
-            <p className="">
+            <p className="lg:text-left text-center">
               We actively contribute to Saudization, creating employment
               opportunities and ensuring businesses stay compliant with local
               laws.

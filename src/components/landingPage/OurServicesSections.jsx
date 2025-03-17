@@ -162,7 +162,7 @@ const OurServicesSection = () => {
   }, []);
 
   return (
-    <div className="w-full h-[80vh] absolute bottom-0 rounded-t-4xl flex items-center justify-center py-4 bg-white">
+    <div className="w-full h-[80vh]  lg:absolute md:absolute sm:absolute bottom-0 rounded-t-4xl flex items-center justify-center py-4 bg-white">
       <div className="w-full mx-auto h-screen flex flex-col">
         <div className="w-full h-full absolute top-0 mt-16">
           <motion.h2
@@ -170,7 +170,7 @@ const OurServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl text-blue-700 font-semibold tracking-wider text-center"
+            className="text-3xl md:text-4xl mb-8 text-blue-700 font-semibold tracking-wider text-center"
           >
             Our Services
           </motion.h2>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import Marquee from "react-fast-marquee";
 
 const flagsData = [
@@ -48,15 +48,30 @@ const flagsData = [
 
 const CountrySlider = () => {
   return (
-    <div className="  w-1/2 m-auto">
-      <Marquee direction="right">
+    <div className="text-center py-2 ">
+      <Marquee
+        direction="right"
+        speed={80}
+        repeat={Infinity}
+        pauseOnHover={true}
+        loop={0}
+        gradient={true}
+        className="flex items-center  "
+      >
         {flagsData.map((flag) => (
-          <img
+          <div
             key={flag.id}
-            src={flag.image}
-            alt={flag.name}
-            className="h-8 md:h-10 lg:h-12 xl:h-14 mx-16"
-          />
+            className="flex flex-col items-center justify-center mx-4 sm:mx-6 lg:mx-16"
+          >
+            <img
+              src={flag.image}
+              alt={flag.name}
+              className="h-8 sm:h-12 md:h-16 lg:h-20 xl:h-8 w-auto drop-shadow-md"
+            />
+            <p className="text-xs sm:text-sm md:text-base lg:text-sm font-semibold mt-2 text-gray-700">
+              {flag.name}
+            </p>
+          </div>
         ))}
       </Marquee>
     </div>

@@ -42,7 +42,7 @@ const ContactUsSection = () => {
   };
 
   return (
-    <section className=" overflow-scroll bg-white lg:h-[80vh] md:h-[80vh] sm:h-[80vh] h-[85vh] absolute bottom-0 rounded-t-4xl flex items-center justify-center py-10 md:py-16 px-4 w-full  m-auto">
+    <section className="  bg-white h-screen lg:h-[80vh] md:h-[80vh] sm:h-[80vh]   lg:absolute md:absolute sm:absolute bottom-0 lg:rounded-t-4xl md:rounded-t-4xl sm:rounded-4xl flex items-center justify-center py-10 md:py-16 px-4 w-full m-auto">
       <div className=" absolute top-0 flex flex-col md:flex-row items-start">
         <div className="p-6 md:p-8 w-full  md:w-1/2">
           <div>

@@ -10,15 +10,15 @@ const OurClients = () => {
           {" "}
           Our Global Reach
         </h2>
-        <p className="text-gray-600 w-1/2  mb-2 font-semibold">
+        <p className="text-gray-600 lg:w-1/2 w-[80vw]   font-semibold">
           Relied upon by businesses and organizations in Saudi Arabia and
           globally for dependable solutions and services that drive success and
           foster growth.
         </p>
-        <div className="h-1 rounded-full bg-[#BBA14E] w-1/2 mx-auto my-4  "></div>
+        <div className="h-1 rounded-full bg-[#BBA14E] w-1/2 mx-auto mt-4  "></div>
       </div>
-      <div className=" flex flex-col gap-20">
-        <div>
+      <div className=" flex flex-col items-center gap-8 ">
+        <div className="w-1/2">
           <CountrySlider />
         </div>
 
