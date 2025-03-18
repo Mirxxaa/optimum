@@ -1,13 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const OurServicesSection = () => {
+  const { t } = useTranslation();
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const sliderRef = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slideWidth, setSlideWidth] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
 
   const navigate = useNavigate();
 
@@ -15,59 +20,76 @@ const OurServicesSection = () => {
   const services = [
     {
       id: 1,
-      title: "Professional Services",
-      description:
-        "Our Professional Services offer customized solutions designed to enhance your strategies, improve operational efficiency, and foster sustainable growth for your business. ",
+      title: t("professionalServices"),
+      description: t("professionalServicesDescription"),
       image:
         "https://media.istockphoto.com/id/1322158065/photo/business-people-contract-agreement-was-signed-co-investment-business.jpg?s=612x612&w=0&k=20&c=QE_ydA8qCzFkzAuTmzoCcQNg6nyKEBULRnlzp7Xihtc=",
       link: "#",
     },
     {
       id: 2,
-      title: "Manpower Solutions",
-      description:
-        "Our manpower solutions provide you with skilled and dependable talent tailored to your business requirements. We focus on enhancing operational efficiency and driving success by connecting you with qualified professionals within KSA & internationally.",
+      title: t("manpowerSolutions"),
+      description: t("manpowerSolutionsDescription"),
       image:
         "https://www.aleiman.ae/wp-content/uploads/2023/06/manpower-supply.jpg",
       link: "#",
     },
     {
       id: 3,
-      title: "Executive Recruitment",
-      description:
-        "Our Executive Recruitment services specialize in identifying and securing high-caliber leaders to boost your organization's success and foster growth. ",
+      title: t("executiveRecruitment"),
+      description: t("executiveRecruitmentDescription"),
       image:
         "https://media.istockphoto.com/id/1359838986/photo/the-manager-is-reading-the-resume-and-is-interviewing-the-new-employee-negotiating-business.jpg?s=612x612&w=0&k=20&c=x6gpp9jg1zb0rJ3Xnvor4dZT8-mAGQ4XAza4y3cN_-w=",
       link: "#",
     },
     {
       id: 4,
-      title: "Recruitment as a Services",
-      description:
-        "Our Recruitment as a Service connects businesses with highly qualified candidates, delivering the right talent for each position. We streamline the hiring process by utilizing advanced strategies and industry expertise to identify and engage top-tier professionals. ",
+      title: t("recruitmentAsAService"),
+      description: t("recruitmentAsAServiceDescription"),
       image:
         "https://jobs.heise.de/fileadmin/user_upload/product_management.png",
       link: "#",
     },
     {
       id: 5,
-      title: "Talent Assessment",
-      description:
-        "Our Talent Assessment services objectively evaluate candidates' skills and potential, aligning them with your organization's specific requirements. By utilizing a comprehensive set of assessment tools, we identify the best matches for your team, enhancing overall productivity and ensuring a strong cultural fit.",
+      title: t("talentAssessment"),
+      description: t("talentAssessmentDescription"),
       image:
         "https://media.licdn.com/dms/image/v2/D4D12AQFnqwPO4WP22w/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1686671222852?e=2147483647&v=beta&t=yfLoeU4L4Im2Ah3EnTOb5_8V1D8Rl9oNY60LoF_R6_M",
       link: "#",
     },
     {
       id: 6,
-      title: "Payroll as a Services",
-      description:
-        "Our Payroll as a Service offers precise, timely, and compliant payroll processing, enabling you to concentrate on business growth. We handle all aspects of payroll management, ensuring adherence to regulations and minimizing the risk of errors.",
+      title: t("payrollAsAService"),
+      description: t("payrollAsAServiceDescription"),
       image:
         "https://paybooks.in/wp-content/uploads/2020/04/Glossary-of-100-Payroll-Terms-in-India.png",
       link: "#",
     },
   ];
+
+  // Inside useEffect, add this to calculate dimensions
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (sliderRef.current && sliderRef.current.children.length > 0) {
+        // Get container width for responsive calculations
+        const containerWidth = sliderRef.current.offsetWidth;
+        setContainerWidth(containerWidth);
+
+        // Calculate single slide width with gap consideration
+        const slideGap = 32; // 8px gap
+        const calculatedWidth = containerWidth;
+        setSlideWidth(calculatedWidth);
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+    };
+  }, []);
 
   // Helper function to truncate text and return first 25 words
   const truncateText = (text, wordCount = 25) => {
@@ -110,12 +132,29 @@ const OurServicesSection = () => {
   };
 
   // Handle touch events for mobile with improved smoothness
+  // Modify the handleTouchStart and add handleTouchEnd for swipe
   const handleTouchStart = (e) => {
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX - sliderRef.current.offsetLeft);
-    setScrollLeft(sliderRef.current.scrollLeft);
-    // Add a dragging class for smoother visual feedback
-    sliderRef.current.classList.add("dragging");
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!touchStart) return;
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStart - touchEndX;
+
+    // If swipe distance is significant, change slide
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        // Swipe left - go to next slide
+        scrollRightHandler();
+      } else {
+        // Swipe right - go to previous slide
+        scrollLeftHandler();
+      }
+    }
+
+    setTouchStart(null);
   };
 
   const handleTouchMove = (e) => {
@@ -127,18 +166,25 @@ const OurServicesSection = () => {
 
   // Navigation buttons
   const scrollLeftHandler = () => {
+    const newSlide = Math.max(0, currentSlide - 1);
+    setCurrentSlide(newSlide);
+
     if (sliderRef.current) {
-      sliderRef.current.scrollBy({
-        left: -300,
+      sliderRef.current.scrollTo({
+        left: newSlide * slideWidth,
         behavior: "smooth",
       });
     }
   };
 
   const scrollRightHandler = () => {
+    const maxSlide = services.length - 1;
+    const newSlide = Math.min(maxSlide, currentSlide + 1);
+    setCurrentSlide(newSlide);
+
     if (sliderRef.current) {
-      sliderRef.current.scrollBy({
-        left: 300,
+      sliderRef.current.scrollTo({
+        left: newSlide * slideWidth,
         behavior: "smooth",
       });
     }
@@ -172,7 +218,7 @@ const OurServicesSection = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl mb-8 text-blue-700 font-semibold tracking-wider text-center"
           >
-            Our Services
+            {t("ourServices")}
           </motion.h2>
 
           <motion.div
@@ -261,7 +307,7 @@ const OurServicesSection = () => {
                       className="text-white select-none font-medium hover:underline flex items-center transition-all duration-300 ease-out hover:translate-x-1"
                       onClick={() => navigate("/services")}
                     >
-                      Learn More
+                      {t("learnMore")}
                       <svg
                         className="w-4 h-4 ml-1"
                         xmlns="http://www.w3.org/2000/svg"

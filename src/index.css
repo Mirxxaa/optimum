@@ -7,3 +7,19 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+body[lang="ar"] {
+  font-family: "Amiri", "Tahoma", sans-serif; /* Replace with your Arabic font */
+}
+/* General styling for RTL */
+[dir="rtl"] {
+  /* Apply RTL layout adjustments here */
+  text-align: right;
+  /* Additional styles such as flipping margins and paddings */
+}
+
+[dir="rtl"] .navbar {
+  /* Adjust navbar for RTL */
+  text-align: right;
+}
+
+/* You can add specific styles for RTL here */

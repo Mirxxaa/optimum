@@ -1,6 +1,7 @@
 // src/Pages/Home.jsx
 import React from "react";
 import OurVisionPic from "../assets/Images/OurVision.png";
+import { useLocation } from "react-router-dom";
 import Mission from "../assets/Images/Mission.png";
 import Values from "../assets/Images/Values.png";
 import { useNavigate } from "react-router-dom";
@@ -21,9 +22,12 @@ import HospitalityIcon from "../assets/Icons/Hospitality.png";
 import HealthCareIcon from "../assets/Icons/HealthCare.png";
 import ConstructionIcon from "../assets/Icons/ConstructionIcon.png";
 import ITIcon from "../assets/Icons/ITIcon.png";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
   const handleClick = () => {
     navigate("/");
   };
@@ -56,7 +60,7 @@ const About = () => {
               className="flex gap-10 items-center mb-4"
             >
               <h1 className="lg:text-4xl text-2xl font-bold text-blue-700">
-                ABOUT OPTIMUM
+                {t("aboutOptimum")}
               </h1>
             </motion.div>
             <motion.p
@@ -66,10 +70,7 @@ const About = () => {
               viewport={{ once: true }}
               className="text-center lg:text-xl w-full lg:w-1/2 sm:w-full md:w-full "
             >
-              Established in 2021, Optimum Business Solutions offers a range of
-              professional and business services in the Kingdom of Saudi Arabia
-              (KSA) and internationally. We have built a diverse portfolio that
-              includes over 15 clients across various industries.
+              {t("aboutOptimumDescription")}
             </motion.p>
           </div>
           <div className="lg:flex justify-between text-black/70 gap-18 text-center mt-8">
@@ -78,32 +79,19 @@ const About = () => {
                 <CgSearchFound />
               </div>
 
-              <p>
-                Founded in 2021, Optimum Business Solutions has emerged as a
-                trusted provider of professional and business services in Saudi
-                Arabia and internationally.{" "}
-              </p>
+              <p>{t("about1")}</p>
             </div>
             <div className=" p-6 rounded-2xl flex flex-col justify-center items-center">
               <div className="text-3xl bg-blue-500 p-6 text-white rounded-full my-8">
                 <FaStar />
               </div>
-              <p>
-                We specialize in guiding businesses through the complexities of
-                the market by delivering customized solutions that promote
-                operational efficiency, regulatory compliance, and sustainable
-                growth.
-              </p>
+              <p>{t("about2")}</p>
             </div>
             <div className="  p-6 rounded-2xl flex flex-col justify-center items-center">
               <div className="text-3xl bg-blue-500 p-6 text-white rounded-full my-8">
                 <PiBuildingsFill />
               </div>
-              <p>
-                Our expertise equips organizations to adapt effectively to
-                changing environments, ensuring they remain competitive and
-                successful in their respective industries.
-              </p>
+              <p>{t("about3")}</p>
             </div>
           </div>
         </div>
@@ -142,13 +130,9 @@ const About = () => {
                 className="  p-4"
               >
                 <h2 className="text-xl my-3 font-semibold text-blue-700">
-                  OUR VISION
+                  {t("ourVision")}
                 </h2>
-                <p className="text-left">
-                  Become the trusted partner for businesses in Saudi Arabia and
-                  globally, providing innovative, strategic solutions for
-                  sustainable success.
-                </p>
+                <p className="text-left">{t("ourVisionDescription")}</p>
               </motion.div>
             </motion.div>
           </div>
@@ -176,12 +160,9 @@ const About = () => {
                 className="  p-4"
               >
                 <h2 className="text-xl my-3 font-semibold text-blue-700">
-                  OUR MISSION
+                  {t("ourMission")}
                 </h2>
-                <p className="text-left">
-                  To empower businesses through expert workforce management,
-                  compliance, and operational excellence solutions.
-                </p>
+                <p className="text-left">{t("ourMissionDescription")}</p>
               </motion.div>
             </motion.div>
           </div>
@@ -209,30 +190,13 @@ const About = () => {
                 className="p-4 "
               >
                 <h2 className="text-2xl my-3 text-center lg:text-left md:text-left sm:text-center font-semibold text-blue-700">
-                  OUR VALUES
+                  {t("ourValues")}
                 </h2>
                 <ul className=" flex flex-col gap-8 p-4 text-md my-8 text-justify">
-                  <li>
-                    1. Integrity: We uphold the highest standards of honesty and
-                    transparency, ensuring compliance in all our dealings to
-                    build trust with our clients and employees.
-                  </li>
-                  <li>
-                    2. Excellence: We strive for operational efficiency and
-                    quality in our services, continually seeking ways to improve
-                    and exceed client expectations.
-                  </li>
-                  <li>
-                    3. Sustainability: We are committed to promoting sustainable
-                    growth practices that benefit our clients and the community,
-                    ensuring a responsible approach to business.
-                  </li>
-                  <li>
-                    4. Collaboration: We foster a culture of teamwork and
-                    cooperation, leveraging the diverse talents of our
-                    experienced team to deliver innovative solutions and meet
-                    the needs of our clients effectively.
-                  </li>
+                  <li>{t("ourValuesDescription1")}</li>
+                  <li>{t("ourValuesDescription2")}</li>
+                  <li>{t("ourValuesDescription3")}</li>
+                  <li>{t("ourValuesDescription4")}</li>
                 </ul>
               </motion.div>
             </motion.div>
@@ -245,21 +209,21 @@ const About = () => {
             <div className="flex flex-col gap-2 items-center justify-center">
               <AutoCounter />
               <p className="lg:text-2xl md:text-2xl sm:text-sm text-sm text-black/60">
-                Employees
+                {t("employees")}
               </p>
             </div>
             <div className="flex flex-col gap-2 items-center justify-center">
               <ClientCounter />
               <p className="lg:text-2xl md:text-2xl sm:text-sm text-sm text-black/60">
                 {" "}
-                Clients
+                {t("clients")}
               </p>
             </div>
             <div className="flex flex-col gap-2 items-center justify-center">
               <GrowthCounter />
               <p className="lg:text-2xl md:text-2xl sm:text-sm text-sm text-black/60">
                 {" "}
-                Growth
+                {t("growth")}
               </p>
             </div>
           </div>
@@ -271,14 +235,10 @@ const About = () => {
           <motion.div className="lg:flex  lg:w-[80vw] w-full lg:h-[60vh] lg:items-center bg-blue-700 overflow-hidden  justify-evenly ">
             <motion.div className="flex flex-col text-white px-8  items-left justify-center  lg:text-left md:text-left sm:text-center text-center  ">
               <h2 className="text-2xl font-semibold  my-4">
-                WHAT SETS US APART?
+                {t("whatSetUsApart")}
               </h2>
               <p className=" lg:text-left md:text-left sm:text-center text-center  ">
-                We offer customized, market-oriented solutions that not only
-                adhere to Saudi regulations but also enhance operational
-                excellence. Our commitment to understanding our clients' unique
-                needs enables us to deliver effective strategies that drive
-                success in a competitive landscape.
+                {t("whatSetUsApartDescription")}
               </p>
             </motion.div>
             <motion.div className="flex items-center  justify-center ">
@@ -297,10 +257,10 @@ const About = () => {
           <motion.div className="flex items-center justify-center lg:gap-8  flex-col text-black/70">
             <div className="flex flex-col items-center">
               <h1 className="lg:text-4xl text-2xl mb-2 font-semibold text-blue-700">
-                INDUSTRIES WE SERVE
+                {t("IndustriesWeServe")}
               </h1>
               <p className="w-full text-xl text-center ">
-                We support businesses in diverse sectors, including
+                {t("IndustriesDescription")}
               </p>
             </div>
             <motion.div className="lg:flex lg:flex-wrap grid grid-cols-2 lg:gap-0 gap-8 w-full justify-evenly items-center my-8  ">
@@ -308,37 +268,37 @@ const About = () => {
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={FinanceIcon} alt="" className="" />
                 </div>
-                <h3 className="text-black/70 text-xl">Finance</h3>
+                <h3 className="text-black/70 text-xl">{t("finance")}</h3>
               </motion.div>
               <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={RetailIcon} alt="" />
                 </div>
-                <h3 className="text-black/70 text-xl">Retail</h3>
+                <h3 className="text-black/70 text-xl">{t("retail")}</h3>
               </motion.div>
               <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={ConstructionIcon} alt="" />
                 </div>
-                <h3 className="text-black/70 text-xl">Construction</h3>
+                <h3 className="text-black/70 text-xl">{t("construction")}</h3>
               </motion.div>
               <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={HealthCareIcon} alt="" />
                 </div>
-                <h3 className="text-black/70 text-xl">Health Care</h3>
+                <h3 className="text-black/70 text-xl">{t("healthCare")}</h3>
               </motion.div>
               <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={HospitalityIcon} alt="" />
                 </div>
-                <h3 className="text-black/70 text-xl">Hospitality</h3>
+                <h3 className="text-black/70 text-xl">{t("Hospitality")}</h3>
               </motion.div>
               <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={ITIcon} alt="" />
                 </div>
-                <h3 className="text-black/70 text-xl"> IT</h3>
+                <h3 className="text-black/70 text-xl"> {t("IT")}</h3>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -360,12 +320,10 @@ const About = () => {
           </div>
           <div className="w-full  justify-center items-center lg:p-0 p-6">
             <h2 className="lg:text-2xl text-xl lg:text-left text-center font-semibold text-blue-500 mb-4">
-              Commitment to Saudization & Compliance
+              {t("commitmenttoSaudization&Compliance")}
             </h2>
             <p className="lg:text-left text-center">
-              We actively contribute to Saudization, creating employment
-              opportunities and ensuring businesses stay compliant with local
-              laws.
+              {t("commitmenttoSaudization&ComplianceDescription")}
             </p>
           </div>
         </div>

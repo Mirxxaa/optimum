@@ -56,8 +56,8 @@ const Careers = () => {
   };
 
   return (
-    <div className="w-full h-[80vh] rounded-t-4xl absolute bottom-0 bg-white  ">
-      <div className="w-full h-screen z-[-100] absolute bottom-0 ">
+    <div className="w-full lg:h-[80vh] md:h-[80vh] sm:h-[70vh] h-[70vh] rounded-t-4xl absolute bottom-0 bg-white">
+      <div className="w-full h-screen z-[-100] absolute bottom-0">
         <Iridescence
           color={[0, 0, 0.8]}
           mouseReact={true}
@@ -65,9 +65,9 @@ const Careers = () => {
           speed={1.0}
         />
       </div>
-      <section className=" flex items-center justify-center py-10 md:py-16 px-4 w-[80vw] m-auto">
-        <div className="mt-10 flex flex-col md:flex-row items-start">
-          <div className="p-6 md:p-8 w-full md:w-1/2">
+      <section className=" flex items-center justify-center py-10 md:py-16 px-4 lg:w-[80vw] md:w-[80vw] sm:w-full w-full m-auto">
+        <div className="flex flex-col md:flex-row items-start">
+          <div className="px-4 md:p-8 w-full lg:w-1/2  md:w-1/2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-blue-700 font-semibold mb-4">
               Apply for a Job
             </h2>
@@ -77,13 +77,13 @@ const Careers = () => {
             </p>
           </div>
 
-          <div className="w-full md:w-1/2 p-6 md:p-8">
-            <div className="bg-white w-full rounded-xl shadow-md p-4 md:p-8 transform transition-all duration-300 hover:shadow-lg">
+          <div className="w-full lg:w-1/2 md:w-1/2 sm:w-full p-4 md:p-6">
+            <div className="bg-white w-full rounded-xl p-2 md:p-6">
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
                 Career Application Form
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Name Input */}
                 <div className="relative">
                   <input
@@ -97,7 +97,7 @@ const Careers = () => {
                     required
                     className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none ${
                       focusedField === "name"
-                        ? "border-blue-700 shadow-md"
+                        ? "border-blue-700 "
                         : "border-gray-300"
                     }`}
                     placeholder=" "

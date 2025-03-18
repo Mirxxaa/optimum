@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useTransition } from "react";
 import { motion } from "framer-motion";
 import BG from "../../assets/Images/about_us.png";
 import "../../styles/AboutSection.css";
+import { useTranslation } from "react-i18next";
 
 const AboutSection = () => {
+  const { t } = useTranslation();
   return (
     <div className="">
       <div className="w-full lg:h-[80vh] md:h-[80vh] bottom-0 sm:h-[80vh] h-[80vh] lg:absolute md:absolute sm:absolute lg:rounded-t-4xl md:rounded-t-4xl sm:rounded-t-4xl flex  justify-center bg-white overflow-hidden">
@@ -16,7 +18,7 @@ const AboutSection = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              About Us
+              {t("aboutOptimum")}
             </motion.h2>
 
             <motion.p
@@ -25,10 +27,7 @@ const AboutSection = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Established in 2021, Optimum Business Solutions offers a range of
-              professional and business services in the Kingdom of Saudi Arabia
-              (KSA) and internationally. We have built a diverse portfolio that
-              includes over 15 clients across various industries.
+              {t("aboutOptimumDescription")}
             </motion.p>
 
             <motion.button
@@ -38,7 +37,7 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               onClick={() => alert("Learn More button clicked!")}
             >
-              Learn More
+              {t("learnMore")}
             </motion.button>
           </div>
 

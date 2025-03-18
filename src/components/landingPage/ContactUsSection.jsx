@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaLinkedin } from "react-icons/fa";
 
 const ContactUsSection = () => {
+  const { t } = useTranslation();
   const [formData, setState] = useState({
     name: "",
     email: "",
@@ -42,18 +44,17 @@ const ContactUsSection = () => {
   };
 
   return (
-    <section className="  bg-white h-screen lg:h-[80vh] md:h-[80vh] sm:h-[80vh]   lg:absolute md:absolute sm:absolute bottom-0 lg:rounded-t-4xl md:rounded-t-4xl sm:rounded-4xl flex items-center justify-center py-10 md:py-16 px-4 w-full m-auto">
-      <div className=" absolute top-0 flex flex-col md:flex-row items-start">
+    <section className=" bg-white lg:absolute md:absolute lg:bottom-0 bottom-0 lg:w-full lg:h-[80vh] rounded-t-4xl p-4 lg:overflow-hidden">
+      <div className="lg:flex lg:w-[80vw] m-auto ">
         <div className="p-6 md:p-8 w-full  md:w-1/2">
           <div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-blue-700 font-semibold mb-4">
-              Get In Touch
+              {t("getInTouch")}
             </h2>
           </div>
           <div className="h-1 w-24 bg-[#BBA14E] rounded-full"></div>
           <p className="mt-4 text-base sm:text-lg text-gray-600 w-full md:w-4/5">
-            Have a question or want to work together? Drop us a message and
-            we'll get back to you as soon as possible.
+            {t("getInTouchDescription")}
           </p>
 
           {/* Contact Information */}
@@ -76,7 +77,9 @@ const ContactUsSection = () => {
                 </svg>
               </div>
               <div>
-                <h4 className="text-lg font-medium text-gray-900">Email</h4>
+                <h4 className="text-lg font-medium text-gray-900">
+                  {t("email")}
+                </h4>
                 <p className="text-gray-600">connect@optibsc.com</p>
               </div>
             </div>
@@ -99,7 +102,9 @@ const ContactUsSection = () => {
                 </svg>
               </div>
               <div>
-                <h4 className="text-lg font-medium text-gray-900">Phone</h4>
+                <h4 className="text-lg font-medium text-gray-900">
+                  {t("phone")}
+                </h4>
                 <p className="text-gray-600">+966 54 964 1403</p>
               </div>
             </div>
@@ -109,7 +114,7 @@ const ContactUsSection = () => {
         <div className="w-full md:w-1/2 p-4 md:p-8">
           <div className="bg-white w-full rounded-xl   md:p-8 transform transition-all duration-300">
             <h3 className="text-xl md:text-2xl font-bold text-blue-700 mb-4">
-              Send Us a Message
+              {t("sendUsAMessage")}
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -138,7 +143,7 @@ const ContactUsSection = () => {
                       : "text-gray-500 top-3"
                   }`}
                 >
-                  Your Name
+                  {t("youName")}
                 </label>
               </div>
 
@@ -167,7 +172,7 @@ const ContactUsSection = () => {
                       : "text-gray-500 top-3"
                   }`}
                 >
-                  Email Address
+                  {t("yourEmail")}
                 </label>
               </div>
 
@@ -196,7 +201,7 @@ const ContactUsSection = () => {
                       : "text-gray-500 top-3"
                   }`}
                 >
-                  Subject
+                  {t("subject")}
                 </label>
               </div>
 
@@ -225,7 +230,7 @@ const ContactUsSection = () => {
                       : "text-gray-500 top-3"
                   }`}
                 >
-                  Your Message
+                  {t("yourMessage")}
                 </label>
               </div>
 
@@ -234,7 +239,7 @@ const ContactUsSection = () => {
                   type="submit"
                   className="w-full px-6 mb-8 py-3 bg-blue-700 text-white font-medium rounded-lg shadow-md hover:bg-[#BBA14E] focus:outline-none focus:ring-2 focus:ring-[#1974B8] focus:ring-opacity-50 transform transition-all duration-300 hover:cursor-pointer hover:shadow-lg"
                 >
-                  Send Message
+                  {t("sendMessage")}
                 </button>
               </div>
             </form>

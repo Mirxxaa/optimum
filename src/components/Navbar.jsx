@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../assets/Logo/NavLogo.png";
+import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 
 const NavigationBar = ({ showNavbar = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [language, setLanguage] = useState("en");
+  const { i18n, t } = useTranslation(); // Hook to access translation functions
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
   // Handle scroll effect
@@ -26,22 +30,24 @@ const NavigationBar = ({ showNavbar = false }) => {
 
   // Menu links with proper routes
   const menuLinks = [
-    { name: "Home", url: "/" },
-    { name: "About Us", url: "/about" },
-    { name: "Our Services", url: "/services" },
-    { name: "Careers", url: "/careers" },
-    { name: "Contact Us", url: "/contact" },
+    { name: t("home"), url: "/" },
+    { name: t("aboutUs"), url: "/about" },
+    { name: t("ourServices"), url: "/services" },
+    { name: t("careers"), url: "/careers" },
+    { name: t("contact"), url: "/contact" },
   ];
 
   // Language options
   const languages = [
     { code: "en", name: "English" },
-    { code: "ar", name: "Arabic" },
+    { code: "ar", name: "عربي" },
   ];
 
   // Handle language change
   const changeLanguage = (langCode) => {
-    setLanguage(langCode);
+    i18n.changeLanguage(langCode);
+    // Set the lang attribute on the <body> tag for Arabic (RTL) or English (LTR)
+    document.body.setAttribute("lang", langCode); // This will apply the correct font and direction
     setIsLangMenuOpen(false);
   };
 
@@ -52,7 +58,7 @@ const NavigationBar = ({ showNavbar = false }) => {
     <>
       {/* Main navigation bar */}
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 lg:px-18  md:px-12 sm:px-8 px-8  py-8 flex items-center justify-between transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 lg:px-18 md:px-12 sm:px-8 px-8 py-8 flex items-center justify-between transition-all duration-300 ${
           scrolled ? "bg-blue-700" : "bg-transparent"
         }`}
         style={{
@@ -78,13 +84,43 @@ const NavigationBar = ({ showNavbar = false }) => {
             <RouterLink
               key={link.name}
               to={link.url}
-              className={`font-medium transition-colors duration-300 ${
-                scrolled
-                  ? "text-white hover:text-[#CEB775]"
-                  : "text-white hover:text-[#BAA04E]"
-              }`}
+              className="group relative font-medium transition-colors duration-300 pb-1"
             >
-              {link.name}
+              <span
+                className={`${
+                  scrolled
+                    ? "text-white group-hover:text-[#CEB775]"
+                    : "text-white group-hover:text-[#BAA04E]"
+                } transition-colors duration-300`}
+              >
+                {link.name}
+              </span>
+              {/* Active indicator - shows when on current page */}
+              <motion.div
+                className="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"
+                initial={false}
+                animate={{
+                  width: location.pathname === link.url ? "100%" : "0%",
+                  opacity: location.pathname === link.url ? 1 : 0,
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              {/* Hover indicator - shows on hover unless already active */}
+              <motion.div
+                className={`absolute bottom-0 left-0 h-0.5 ${
+                  scrolled ? "bg-[#CEB775]" : "bg-[#BAA04E]"
+                } w-0 opacity-0 group-hover:opacity-100 group-hover:w-full transition-all duration-300`}
+                initial={false}
+                animate={{
+                  width: "0%",
+                  opacity: 0,
+                }}
+                whileHover={{
+                  width: location.pathname === link.url ? "0%" : "100%",
+                  opacity: location.pathname === link.url ? 0 : 1,
+                }}
+                transition={{ duration: 0.3 }}
+              />
             </RouterLink>
           ))}
         </div>
@@ -110,10 +146,10 @@ const NavigationBar = ({ showNavbar = false }) => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
               ></path>
             </svg>
-            <span>{language === "en" ? "EN" : "AR"}</span>
+            <span>{i18n.language === "en" ? "EN" : "AR"}</span>
             <svg
               className={`w-4 h-4 transform transition-transform duration-300 ${
                 isLangMenuOpen ? "rotate-180" : ""
@@ -149,7 +185,7 @@ const NavigationBar = ({ showNavbar = false }) => {
                     className="w-full text-left px-4 py-2 text-gray-800 hover:bg-blue-50 flex items-center justify-between"
                   >
                     <span>{lang.name}</span>
-                    {language === lang.code && (
+                    {i18n.language === lang.code && (
                       <motion.svg
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
@@ -237,13 +273,23 @@ const NavigationBar = ({ showNavbar = false }) => {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
+                      className="relative"
                     >
                       <RouterLink
                         to={link.url}
                         onClick={() => setIsOpen(false)}
-                        className="text-gray-800 hover:text-blue-700 font-medium text-lg"
+                        className="text-gray-800 hover:text-blue-700 font-medium text-lg block pb-2"
                       >
                         {link.name}
+                        {/* Active indicator for mobile menu */}
+                        {location.pathname === link.url && (
+                          <motion.div
+                            className="absolute bottom-0 left-0 h-0.5 bg-blue-700 w-full"
+                            initial={{ width: 0 }}
+                            animate={{ width: "100%" }}
+                            transition={{ duration: 0.3 }}
+                          />
+                        )}
                       </RouterLink>
                     </motion.div>
                   ))}

@@ -21,7 +21,7 @@ const Services = () => {
   };
   const navigate = useNavigate();
   return (
-    <div className="w-full h-[80vh] bg-white absolute bottom-0 rounded-t-4xl">
+    <div className="w-full lg:h-[80vh] h-[70vh]  bg-white absolute bottom-0 rounded-t-4xl">
       <div className="w-full h-screen z-[-100] absolute bottom-0 ">
         <Iridescence
           color={[0, 0, 0.8]}
@@ -44,7 +44,7 @@ const Services = () => {
               </motion.h2>
             </div>
             <motion.p
-              className="text-base md:text-lg text-black text-justify leading-relaxed"
+              className="text-base md:text-lg text-black text-center leading-relaxed"
               initial={{ y: 60, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -57,16 +57,17 @@ const Services = () => {
           </div>
         </div>
       </section>
-      <section className="my-20">
+      <section className="lg:my-20 md:my-20 sm:my-10 my-25 ">
         <div className="w-80 h-80 z-[-10]  opacity-5 bg-blue-700 absolute rounded-full left-0 t-0 "></div>
 
         <div className="h-auto  w-[80vw] m-auto">
-          <div className="flex items-center justify-center gap-10">
-            <div className="flex-1 flex flex-col">
-              <h3 className="text-2xl font-semibold mb-4 text-blue-700">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 px-4 md:px-8 lg:px-12">
+            {/* Text Section */}
+            <div className="w-full lg:w-1/2 flex flex-col">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700 text-center lg:text-left">
                 Professional Services
               </h3>
-              <p className="text-justify">
+              <p className="text-sm sm:text-base text-center lg:text-justify leading-relaxed text-gray-700">
                 Our Professional Services offer customized solutions designed to
                 enhance your strategies, improve operational efficiency, and
                 foster sustainable growth for your business. We focus on
@@ -77,40 +78,52 @@ const Services = () => {
                 competitive market.
               </p>
             </div>
-            <div className="flex-1 flex items-center justify-center">
-              <div className="w-50 h-full absolute bg-blue-700 z-[-100]"></div>
-              <div className="rounded-tr-4xl rounded-bl-4xl overflow-hidden">
+
+            {/* Image Section */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center relative">
+              <div className="rounded-tr-3xl rounded-bl-3xl overflow-hidden w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
                 <img
                   src={ProfessionalServicesImg}
-                  alt=""
-                  className="w-100 h-100"
+                  alt="Professional Services"
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-10 my-30 ">
-            <div className="flex-1 flex items-center justify-center">
-              <img src={ManpowerImage} alt="" className="w-100" />
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 px-4 md:px-8 lg:px-12 my-10">
+            {/* Image Section */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center">
+              <div className="rounded-tr-3xl rounded-bl-3xl overflow-hidden w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+                <img
+                  src={ManpowerImage}
+                  alt="Manpower Solutions"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
             </div>
-            <div className="flex-1 flex flex-col relative">
-              <h3 className="text-2xl font-semibold mb-4 text-blue-700">
+
+            {/* Text Section */}
+            <div className="w-full lg:w-1/2 flex flex-col">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700 text-center lg:text-left">
                 Manpower Solutions
               </h3>
-              <p className="text-justify">
+              <p className="text-sm sm:text-base text-center lg:text-justify leading-relaxed text-gray-700">
                 Our manpower solutions provide you with skilled and dependable
                 talent tailored to your business requirements. We focus on
                 enhancing operational efficiency and driving success by
-                connecting you with qualified professionals within KSA &
+                connecting you with qualified professionals within KSA and
                 internationally.
               </p>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-10 my-30  ">
-            <div className="flex-1 flex flex-col">
-              <h3 className="text-2xl font-semibold mb-4 text-blue-700">
+
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 px-4 md:px-8 lg:px-12 my-10">
+            {/* Text Section */}
+            <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
                 Executive Recruitment
               </h3>
-              <p className="text-justify">
+              <p className="text-sm sm:text-base leading-relaxed text-gray-700">
                 Our Executive Recruitment services specialize in identifying and
                 securing high-caliber leaders to boost your organization's
                 success and foster growth. With a tailored approach, we leverage
@@ -119,45 +132,56 @@ const Services = () => {
                 strategic objectives. Our team of experts is dedicated to
                 understanding your unique organizational needs, enabling us to
                 deliver exceptional talent that drives impactful results and
-                supports long-term success. Trust us to streamline your
-                executive search process and connect you with leaders who will
-                steer your organization towards its goals.
+                supports long-term success.
               </p>
             </div>
-            <div className="w-20 h-full absolute bg-blue-700 z-[-100] left-0"></div>
-            <div className="rounded-tr-4xl rounded-bl-4xl overflow-hidden">
-              <img src={ExecutiveRecruitment} alt="" className="w-100 h-100" />
+
+            {/* Image Section */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center relative">
+              <div className="rounded-tr-3xl rounded-bl-3xl overflow-hidden w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+                <img
+                  src={ExecutiveRecruitment}
+                  alt="Executive Recruitment"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-10 my-30 ">
-            <div className="flex-1 flex items-center justify-center">
-              <img src={RecruitmentServicesImage} alt="" className="w-100" />
+
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 px-4 md:px-8 lg:px-12 my-10">
+            {/* Image Section */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center">
+              <img
+                src={RecruitmentServicesImage}
+                alt="Recruitment Services"
+                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg object-cover rounded-tr-3xl rounded-bl-3xl"
+              />
             </div>
-            <div className="flex-1 flex flex-col">
-              <h3 className="text-2xl font-semibold mb-4 text-blue-700">
-                Recruitment as a Services
+
+            {/* Text Section */}
+            <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
+                Recruitment as a Service
               </h3>
-              <p className="text-justify">
+              <p className="text-sm sm:text-base leading-relaxed text-gray-700">
                 Our Recruitment as a Service connects businesses with highly
                 qualified candidates, delivering the right talent for each
                 position. We streamline the hiring process by utilizing advanced
                 strategies and industry expertise to identify and engage
                 top-tier professionals. Our approach not only enhances your
                 recruitment efficiency but also aligns with your organizational
-                needs, ensuring a perfect fit for your team. With a focus on
-                quality and compatibility, we help you build a strong workforce
-                that drives success and fosters growth in your organization.
-                Partner with us to elevate your recruitment process and achieve
-                your hiring objectives effectively.
+                needs, ensuring a perfect fit for your team.
               </p>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-10 my-30  ">
-            <div className="flex-1 flex flex-col">
-              <h3 className="text-2xl font-semibold mb-4 text-blue-700">
+
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 px-4 md:px-8 lg:px-12 my-10">
+            {/* Text Section */}
+            <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
                 Talent Assessment
               </h3>
-              <p className="text-justify">
+              <p className="text-sm sm:text-base leading-relaxed text-gray-700">
                 Our Talent Assessment services objectively evaluate candidates'
                 skills and potential, aligning them with your organization's
                 specific requirements. By utilizing a comprehensive set of
@@ -165,35 +189,44 @@ const Services = () => {
                 enhancing overall productivity and ensuring a strong cultural
                 fit. Our data-driven approach allows for informed
                 decision-making, ultimately leading to improved hiring outcomes
-                and reduced turnover rates. Trust our expertise to help you
-                build a high-performing workforce tailored to your strategic
-                goals.
+                and reduced turnover rates.
               </p>
             </div>
-            <div className="flex-1 flex items-center justify-center">
-              <img src={TalentAssesment} alt="" className="w-100" />
+
+            {/* Image Section */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center">
+              <img
+                src={TalentAssesment}
+                alt="Talent Assessment"
+                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg object-cover rounded-tr-3xl rounded-bl-3xl"
+              />
             </div>
           </div>
-          <div className="flex items-center justify-center gap-10 my-30 ">
-            <div className="flex-1 flex items-center justify-center">
-              <img src={payroll} alt="" className="w-100" />
+
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 px-4 md:px-8 lg:px-12 my-10">
+            {/* Image Section */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center">
+              <img
+                src={payroll}
+                alt="Payroll Services"
+                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg object-cover rounded-tr-3xl rounded-bl-3xl"
+              />
             </div>
-            <div className="flex-1 flex flex-col">
-              <h3 className="text-2xl font-semibold mb-4 text-blue-700">
-                Payroll as a Services
+
+            {/* Text Section */}
+            <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
+                Payroll as a Service
               </h3>
-              <p className="text-justify">
+              <p className="text-sm sm:text-base leading-relaxed text-gray-700">
                 Our Payroll as a Service offers precise, timely, and compliant
                 payroll processing, enabling you to concentrate on business
                 growth. We handle all aspects of payroll management, ensuring
                 adherence to regulations and minimizing the risk of errors. Our
                 comprehensive solution simplifies your payroll operations,
                 allowing you to allocate resources effectively and enhance
-                productivity. By partnering with us, you gain access to expert
-                support and agile process that streamlines payroll tasks,
-                ensuring your employees are paid accurately and on time. Let us
-                take care of your payroll needs while you focus on driving your
-                business forward.
+                productivity. Partner with us to streamline payroll tasks,
+                ensuring employees are paid accurately and on time.
               </p>
             </div>
           </div>

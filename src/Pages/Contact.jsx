@@ -12,7 +12,7 @@ const Contact = () => {
     navigate("/"); // This will navigate to /home
   };
   return (
-    <div className="w-full h-[80vh] rounded-t-4xl absolute bottom-0 bg-white  ">
+    <div className="w-full lg:h-[80vh] md:h-[80vh] sm:h-[70vh] h-[70vh] rounded-t-4xl absolute bottom-0 bg-white">
       <div className="w-full h-screen z-[-100] absolute bottom-0 ">
         <Iridescence
           color={[0, 0, 0.8]}
