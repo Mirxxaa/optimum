@@ -14,8 +14,11 @@ import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import Iridescence from "../components/Iridescence";
 import FooterSection from "../components/landingPage/FooterSection";
+import { useTranslation } from "react-i18next";
 
 const Services = () => {
+  const { t } = useTranslation();
+
   const handleClick = () => {
     navigate("/"); // This will navigate to /home
   };
@@ -40,7 +43,7 @@ const Services = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                OUR SERVICES
+                {t("ourServices")}
               </motion.h2>
             </div>
             <motion.p
@@ -49,7 +52,7 @@ const Services = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Steer Your Business Towards Success with Optimum Excellence
+              {t("ourServiceDescription")}
             </motion.p>
           </div>
           <div className="h-[300px] bg-blue-700 rounded-t-4xl ">
@@ -65,17 +68,10 @@ const Services = () => {
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col">
               <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700 text-center lg:text-left">
-                Professional Services
+                {t("professionalServices")}
               </h3>
               <p className="text-sm sm:text-base text-center lg:text-justify leading-relaxed text-gray-700">
-                Our Professional Services offer customized solutions designed to
-                enhance your strategies, improve operational efficiency, and
-                foster sustainable growth for your business. We focus on
-                understanding your unique challenges and objectives to deliver
-                actionable insights and processes that align with your goals. By
-                leveraging our expertise, you can optimize your approach,
-                streamline workflows, and achieve lasting success in a
-                competitive market.
+                {t("professionalServicesDescription")}
               </p>
             </div>
 
@@ -105,14 +101,10 @@ const Services = () => {
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col">
               <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700 text-center lg:text-left">
-                Manpower Solutions
+                {t("manpowerSolutions")}
               </h3>
               <p className="text-sm sm:text-base text-center lg:text-justify leading-relaxed text-gray-700">
-                Our manpower solutions provide you with skilled and dependable
-                talent tailored to your business requirements. We focus on
-                enhancing operational efficiency and driving success by
-                connecting you with qualified professionals within KSA and
-                internationally.
+                {t("manpowerSolutionsDescription")}
               </p>
             </div>
           </div>
@@ -121,18 +113,10 @@ const Services = () => {
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
-                Executive Recruitment
+                {t("executiveRecruitment")}
               </h3>
               <p className="text-sm sm:text-base leading-relaxed text-gray-700">
-                Our Executive Recruitment services specialize in identifying and
-                securing high-caliber leaders to boost your organization's
-                success and foster growth. With a tailored approach, we leverage
-                an extensive network and comprehensive assessment techniques to
-                ensure the perfect alignment between candidates and your
-                strategic objectives. Our team of experts is dedicated to
-                understanding your unique organizational needs, enabling us to
-                deliver exceptional talent that drives impactful results and
-                supports long-term success.
+                {t("executiveRecruitmentDescription")}
               </p>
             </div>
 
@@ -161,16 +145,10 @@ const Services = () => {
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
-                Recruitment as a Service
+                {t("recruitmentAsAService")}
               </h3>
               <p className="text-sm sm:text-base leading-relaxed text-gray-700">
-                Our Recruitment as a Service connects businesses with highly
-                qualified candidates, delivering the right talent for each
-                position. We streamline the hiring process by utilizing advanced
-                strategies and industry expertise to identify and engage
-                top-tier professionals. Our approach not only enhances your
-                recruitment efficiency but also aligns with your organizational
-                needs, ensuring a perfect fit for your team.
+                {t("recruitmentAsAServiceDescription")}
               </p>
             </div>
           </div>
@@ -179,17 +157,10 @@ const Services = () => {
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
-                Talent Assessment
+                {t("talentAssessment")}
               </h3>
               <p className="text-sm sm:text-base leading-relaxed text-gray-700">
-                Our Talent Assessment services objectively evaluate candidates'
-                skills and potential, aligning them with your organization's
-                specific requirements. By utilizing a comprehensive set of
-                assessment tools, we identify the best matches for your team,
-                enhancing overall productivity and ensuring a strong cultural
-                fit. Our data-driven approach allows for informed
-                decision-making, ultimately leading to improved hiring outcomes
-                and reduced turnover rates.
+                {t("talentAssessmentDescription")}
               </p>
             </div>
 
@@ -216,17 +187,10 @@ const Services = () => {
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
-                Payroll as a Service
+                {t("payrollAsAService")}
               </h3>
               <p className="text-sm sm:text-base leading-relaxed text-gray-700">
-                Our Payroll as a Service offers precise, timely, and compliant
-                payroll processing, enabling you to concentrate on business
-                growth. We handle all aspects of payroll management, ensuring
-                adherence to regulations and minimizing the risk of errors. Our
-                comprehensive solution simplifies your payroll operations,
-                allowing you to allocate resources effectively and enhance
-                productivity. Partner with us to streamline payroll tasks,
-                ensuring employees are paid accurately and on time.
+                {t("payrollAsAServiceDescription")}
               </p>
             </div>
           </div>
@@ -236,14 +200,14 @@ const Services = () => {
         <div className="w-full max-h-[300px] h-[200px] my-20 bg-[#BBA14E] flex items-center justify-center">
           <div className="flex flex-col gap-4 ">
             <h3 className="text-4xl font-semibold text-white">
-              Connect With Us?
+              {t("connectWithUs")}
             </h3>
 
             <button
               className="outline-2 outline-white text-white font-semibold transition-all duration-200 hover:bg-white hover:text-[#1974B8] px-4 py-2 cursor-pointer"
               onClick={() => navigate("/contact")}
             >
-              Contact
+              {t("connectWithUs")}
             </button>
           </div>
         </div>

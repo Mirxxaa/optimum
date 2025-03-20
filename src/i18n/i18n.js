@@ -1,3 +1,4 @@
+// i18n.js
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
@@ -6,8 +7,6 @@ import enTranslations from "./en.json";
 import arTranslations from "./ar.json";
 
 // the translations
-// (tip move them in a JSON file and import them,
-// or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
 const resources = {
   en: {
     translation: enTranslations,
@@ -17,21 +16,26 @@ const resources = {
   },
 };
 
-i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
-  .init({
-    resources,
-    lng: "en", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
-    // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
-    // if you're using a language detector, do not define the lng option
+// Function to change the direction of the document
+const changeDirection = (lng) => {
+  const html = document.documentElement;
 
-    interpolation: {
-      escapeValue: false, // react already safes from xss
-    },
-    // Callback to change the direction of the page when language is changed
-    onLanguageChanged: (lng) => {
-      changeDirection(lng);
-    },
-  });
+  if (lng === "ar") {
+    html.setAttribute("dir", "rtl");
+    html.setAttribute("lang", "ar");
+  } else {
+    html.setAttribute("dir", "ltr");
+    html.setAttribute("lang", "en");
+  }
+};
+
+i18n.use(initReactI18next).init({
+  resources,
+  lng: "en", // Default language
+  interpolation: {
+    escapeValue: false, // React already handles XSS
+  },
+  onLanguageChanged: changeDirection, // Update direction on language change
+});
 
 export default i18n;

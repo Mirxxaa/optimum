@@ -43,12 +43,14 @@ const NavigationBar = ({ showNavbar = false }) => {
     { code: "ar", name: "عربي" },
   ];
 
-  // Handle language change
-  const changeLanguage = (langCode) => {
-    i18n.changeLanguage(langCode);
-    // Set the lang attribute on the <body> tag for Arabic (RTL) or English (LTR)
-    document.body.setAttribute("lang", langCode); // This will apply the correct font and direction
-    setIsLangMenuOpen(false);
+  // Inside your component
+  const changeLanguage = (code) => {
+    i18n.changeLanguage(code);
+
+    // Update the text direction dynamically
+    const html = document.documentElement;
+    html.setAttribute("dir", code === "ar" ? "rtl" : "ltr");
+    html.setAttribute("lang", code);
   };
 
   // If showNavbar is false, don't render anything
@@ -126,7 +128,8 @@ const NavigationBar = ({ showNavbar = false }) => {
         </div>
 
         {/* Language Selector */}
-        <div className="hidden md:block relative">
+        {/* Language Selector */}
+        <div className="hidden md:block  relative">
           <button
             onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
             className={`flex items-center space-x-1 font-medium cursor-pointer ${
@@ -146,7 +149,7 @@ const NavigationBar = ({ showNavbar = false }) => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
               ></path>
             </svg>
             <span>{i18n.language === "en" ? "EN" : "AR"}</span>
@@ -176,7 +179,7 @@ const NavigationBar = ({ showNavbar = false }) => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
-                className="absolute right-0 mt-2 py-2 w-40 bg-white rounded-md shadow-lg z-50"
+                className="absolute mt-2 py-2 w-40 bg-white rounded-md shadow-lg z-50 ltr:right-0 rtl:left-0"
               >
                 {languages.map((lang) => (
                   <button

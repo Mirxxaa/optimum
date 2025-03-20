@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 
 import Iridescence from "../components/Iridescence";
+import { useTranslation } from "react-i18next";
 const Careers = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -69,18 +71,18 @@ const Careers = () => {
         <div className="flex flex-col md:flex-row items-start">
           <div className="px-4 md:p-8 w-full lg:w-1/2  md:w-1/2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-blue-700 font-semibold mb-4">
-              Apply for a Job
+              {t("appllyForAJob")}
             </h2>
             <div className="h-1 w-24 bg-[#BBA14E] rounded-full"></div>
             <p className="mt-6 text-base sm:text-lg text-gray-600 w-full md:w-4/5">
-              Submit your application by filling out the form below.
+              {t("careersDescription")}
             </p>
           </div>
 
           <div className="w-full lg:w-1/2 md:w-1/2 sm:w-full p-4 md:p-6">
             <div className="bg-white w-full rounded-xl p-2 md:p-6">
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
-                Career Application Form
+                {t("careerApplicationForm")}
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -110,7 +112,7 @@ const Careers = () => {
                         : "text-gray-500 top-3"
                     }`}
                   >
-                    Your Name
+                    {t("youName")}
                   </label>
                 </div>
 
@@ -140,7 +142,7 @@ const Careers = () => {
                         : "text-gray-500 top-3"
                     }`}
                   >
-                    Email Address
+                    {t("email")}
                   </label>
                 </div>
 
@@ -170,7 +172,7 @@ const Careers = () => {
                         : "text-gray-500 top-3"
                     }`}
                   >
-                    Phone Number
+                    {t("phone")}
                   </label>
                 </div>
 
@@ -199,7 +201,7 @@ const Careers = () => {
                     type="submit"
                     className="w-full px-6 py-3 bg-blue-700 text-white font-medium rounded-lg shadow-md hover:bg-[#BBA14E] focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 transform transition-all duration-300 hover:cursor-pointer hover:shadow-lg"
                   >
-                    Submit Application
+                    {t("submitApplication")}
                   </button>
                 </div>
               </form>

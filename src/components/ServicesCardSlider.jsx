@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const ServicesCardSlider = () => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null);
 
@@ -8,7 +10,7 @@ const ServicesCardSlider = () => {
   const services = [
     {
       id: 1,
-      title: "Professional Services",
+      title: t("professionalServices"),
       description:
         "Custom websites built with the latest technologies to deliver exceptional user experiences.",
       image:
@@ -16,7 +18,7 @@ const ServicesCardSlider = () => {
     },
     {
       id: 2,
-      title: "Manpower Solutions",
+      title: t("manpowerSolutions"),
       description:
         "Native and cross-platform mobile applications for iOS and Android devices.",
       image:
@@ -24,7 +26,7 @@ const ServicesCardSlider = () => {
     },
     {
       id: 3,
-      title: "Executive Recruitment",
+      title: t("executiveRecruitment"),
       description:
         "User-centered design solutions that enhance usability and visual appeal.",
       image:
@@ -32,7 +34,7 @@ const ServicesCardSlider = () => {
     },
     {
       id: 4,
-      title: "Recruitment Services",
+      title: t("recruitmentAsAService"),
       description:
         "Strategic marketing campaigns to boost your online presence and drive conversions.",
       image:
@@ -40,7 +42,7 @@ const ServicesCardSlider = () => {
     },
     {
       id: 5,
-      title: "Talent Assessment",
+      title: t("talentAssessment"),
       description:
         "High-quality content that engages your audience and tells your brand story.",
       image:
@@ -48,7 +50,7 @@ const ServicesCardSlider = () => {
     },
     {
       id: 6,
-      title: "Payroll Services",
+      title: t("payrollAsAService"),
       description:
         "Improve your search engine rankings and drive more organic traffic to your website.",
       image:

@@ -252,7 +252,7 @@ const About = () => {
         </motion.div>
       </motion.section>
 
-      <motion.section className="max-h-[500px] h-screen lg:my-0 my-10 flex">
+      <motion.section className="max-h-[700px] h-screen lg:my-0 my-10 flex">
         <motion.div className="w-[80vw] m-auto flex items-center justify-center ">
           <motion.div className="flex items-center justify-center lg:gap-8  flex-col text-black/70">
             <div className="flex flex-col items-center">
@@ -264,37 +264,37 @@ const About = () => {
               </p>
             </div>
             <motion.div className="lg:flex lg:flex-wrap grid grid-cols-2 lg:gap-0 gap-8 w-full justify-evenly items-center my-8  ">
-              <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
+              <motion.div className="mx-6 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={FinanceIcon} alt="" className="" />
                 </div>
-                <h3 className="text-black/70 text-xl">{t("finance")}</h3>
+                <h3 className="text-black/70  text-xl">{t("finance")}</h3>
               </motion.div>
-              <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
+              <motion.div className="mx-6 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={RetailIcon} alt="" />
                 </div>
                 <h3 className="text-black/70 text-xl">{t("retail")}</h3>
               </motion.div>
-              <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
+              <motion.div className="mx-6 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={ConstructionIcon} alt="" />
                 </div>
                 <h3 className="text-black/70 text-xl">{t("construction")}</h3>
               </motion.div>
-              <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
+              <motion.div className="mx-6 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={HealthCareIcon} alt="" />
                 </div>
                 <h3 className="text-black/70 text-xl">{t("healthCare")}</h3>
               </motion.div>
-              <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
+              <motion.div className="mx-6 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={HospitalityIcon} alt="" />
                 </div>
                 <h3 className="text-black/70 text-xl">{t("Hospitality")}</h3>
               </motion.div>
-              <motion.div className="mx-12 flex flex-col items-center justify-center gap-4">
+              <motion.div className="mx-6 flex flex-col items-center justify-center gap-4">
                 <div className="w-15 h-15 flex items-center justify-center">
                   <img src={ITIcon} alt="" />
                 </div>
@@ -305,8 +305,8 @@ const About = () => {
         </motion.div>
       </motion.section>
 
-      <motion.section className="h-screen ">
-        <div className="lg:w-[80vw]  lg:flex gap-10 mt-20 lg:mt-0 items-center m-auto">
+      <motion.section className="h-screen  flex items-center justify-center ">
+        <div className="lg:w-[80vw] gap-12  lg:flex  lg:mt-0 items-center m-auto">
           <div className="w-full relative ">
             <div className="bg-blue-500 absolute lg:w-[50vw] z-[-10] h-[10vh]"></div>
             <div className="bg-[#bba14e] absolute bottom-0 w-[60vw] h-[10vh]"></div>
@@ -318,7 +318,7 @@ const About = () => {
               />
             </div>
           </div>
-          <div className="w-full  justify-center items-center lg:p-0 p-6">
+          <div className="w-full  justify-center items-center  lg:p-0 p-6">
             <h2 className="lg:text-2xl text-xl lg:text-left text-center font-semibold text-blue-500 mb-4">
               {t("commitmenttoSaudization&Compliance")}
             </h2>

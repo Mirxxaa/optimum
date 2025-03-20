@@ -5,8 +5,10 @@ import {
   FaLinkedin,
   FaInstagramSquare,
 } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const FooterSection = () => {
+  const { t } = useTranslation();
   return (
     <div>
       <footer className="bg-blue-700 text-white py-10 px-6 md:px-16">
@@ -29,18 +31,18 @@ const FooterSection = () => {
 
           {/* Contact Information Section */}
           <div className="w-full md:w-1/3 text-center md:text-left">
-            <h2 className="font-bold text-lg mb-4">Our Office</h2>
+            <h2 className="font-bold text-lg mb-4">{t("ourOffice")}</h2>
             <div className="flex flex-col gap-3">
               <div>
-                <h3 className="font-semibold">Riyadh</h3>
-                <p>P.O. Box: 6633, Riyadh, Kingdom of Saudi Arabia</p>
+                <h3 className="font-semibold">{t("riyadh")}</h3>
+                <p>{t("address")}</p>
               </div>
               <div>
-                <h3 className="font-semibold">Phone</h3>
+                <h3 className="font-semibold">{t("phone")}</h3>
                 <p>+966 54 964 1403</p>
               </div>
               <div>
-                <h3 className="font-semibold">Email</h3>
+                <h3 className="font-semibold">{t("email")}</h3>
                 <p>connect@optibsc.com</p>
               </div>
             </div>
@@ -49,20 +51,20 @@ const FooterSection = () => {
           {/* Newsletter Subscription Section */}
           <div className="w-full md:w-1/3">
             <h3 className="text-xl font-semibold mb-4 text-center md:text-left">
-              Subscribe to Our Newsletter
+              {t("subscribeToOurNewsletter")}
             </h3>
             <form className="flex flex-col sm:flex-row items-center gap-4">
               <input
                 type="email"
                 className="w-full p-3 border rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300"
-                placeholder="Enter your email"
+                placeholder={t("emailPlaceholder")}
                 required
               />
               <button
                 type="submit"
                 className="bg-white text-blue-700 py-3 px-6 rounded-lg font-bold hover:bg-[#BBA14E] hover:text-white transition duration-300"
               >
-                Subscribe
+                {t("subscribe")}
               </button>
             </form>
           </div>
@@ -71,7 +73,7 @@ const FooterSection = () => {
 
       {/* Footer Bottom */}
       <div className="text-center text-sm p-4 bg-blue-700 text-white">
-        All Rights Reserved | Optimum Business Solutions
+        {t("allRightReserved")}
       </div>
     </div>
   );
