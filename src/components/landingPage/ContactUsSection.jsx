@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaLinkedin } from "react-icons/fa";
+import axios from "axios";
 
 const ContactUsSection = () => {
   const { t } = useTranslation();
-  const [formData, setState] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
+    phone: "",
   });
 
   const [focusedField, setFocusedField] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setState((prevState) => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: value, // Update the specific field in formData
     }));
   };
 
@@ -29,30 +31,46 @@ const ContactUsSection = () => {
     setFocusedField(null);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log("Form submitted:", formData);
-    // Reset form
-    setState({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    alert("Message sent successfully!");
+
+    // Log the form data to ensure it's being collected correctly
+    console.log("Form Data Submitted:", formData);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/messages/add",
+        formData
+      );
+      console.log("Message sent successfully:", response.data);
+      // Optionally reset the form or show a success message
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        phone: "",
+      });
+
+      // Show success alert
+      alert("Message sent successfully!");
+    } catch (error) {
+      console.error("Error sending message:", error);
+      // Show error alert
+      alert("There was an error sending your message. Please try again later.");
+    }
   };
 
   return (
-    <section className=" bg-white lg:absolute md:absolute lg:bottom-0 bottom-0 lg:w-full lg:h-[80vh] rounded-t-4xl p-4 lg:overflow-hidden">
+    <section className=" bg-white lg:absolute md:absolute lg:bottom-0 bottom-0 lg:w-full lg:h-[80vh] rounded-t-4xl flex items-center justify-center  ">
       <div className="lg:flex lg:w-[80vw] m-auto ">
         <div className="p-6 md:p-8 w-full  md:w-1/2">
           <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl text-blue-700 font-semibold mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#143d59] font-semibold mb-4">
               {t("getInTouch")}
             </h2>
           </div>
-          <div className="h-1 w-24 bg-[#BBA14E] rounded-full"></div>
+          <div className="h-1 w-24 bg-[#f4b41a] rounded-full"></div>
           <p className="mt-4 text-base sm:text-lg text-gray-600 w-full md:w-4/5">
             {t("getInTouchDescription")}
           </p>
@@ -62,7 +80,7 @@ const ContactUsSection = () => {
             <div className="flex items-center space-x-4">
               <div className="flex-shrink-0 bg-[#1974B8]/10 p-3 rounded-full">
                 <svg
-                  className="w-6 h-6 text-blue-700"
+                  className="w-6 h-6 text-[#143d59]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -87,7 +105,7 @@ const ContactUsSection = () => {
             <div className="flex items-center space-x-4">
               <div className="flex-shrink-0 bg-[#1974B8]/10 p-3 rounded-full">
                 <svg
-                  className="w-6 h-6 text-blue-700"
+                  className="w-6 h-6 text-[#143d59]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -113,11 +131,11 @@ const ContactUsSection = () => {
 
         <div className="w-full md:w-1/2 p-4 md:p-8">
           <div className="bg-white w-full rounded-xl   md:p-8 transform transition-all duration-300">
-            <h3 className="text-xl md:text-2xl font-bold text-blue-700 mb-4">
+            <h3 className="text-xl md:text-2xl font-bold text-[#143d59] mb-4">
               {t("sendUsAMessage")}
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-2">
               <div className="relative">
                 <input
                   type="text"
@@ -130,7 +148,7 @@ const ContactUsSection = () => {
                   required
                   className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none ${
                     focusedField === "name"
-                      ? "border-blue-700 shadow-md"
+                      ? "border-[#143d59] shadow-md"
                       : "border-gray-300"
                   }`}
                   placeholder=" "
@@ -139,11 +157,41 @@ const ContactUsSection = () => {
                   htmlFor="name"
                   className={`absolute left-4 transition-all duration-300 pointer-events-none ${
                     focusedField === "name" || formData.name
-                      ? "text-xs text-blue-700 -top-2 bg-white px-1"
+                      ? "text-xs text-[#143d59] -top-2 bg-white px-1"
                       : "text-gray-500 top-3"
                   }`}
                 >
                   {t("youName")}
+                </label>
+              </div>
+
+              {/* Phone input comes right after the Name field */}
+              <div className="relative">
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  onFocus={() => handleFocus("phone")}
+                  onBlur={handleBlur}
+                  required
+                  className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none ${
+                    focusedField === "phone"
+                      ? "border-[#143d59] shadow-md"
+                      : "border-gray-300"
+                  }`}
+                  placeholder=" "
+                />
+                <label
+                  htmlFor="phone"
+                  className={`absolute left-4 transition-all duration-300 pointer-events-none ${
+                    focusedField === "phone" || formData.phone
+                      ? "text-xs text-[#143d59] -top-2 bg-white px-1"
+                      : "text-gray-500 top-3"
+                  }`}
+                >
+                  {t("phone")}
                 </label>
               </div>
 
@@ -159,7 +207,7 @@ const ContactUsSection = () => {
                   required
                   className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none ${
                     focusedField === "email"
-                      ? "border-blue-700 shadow-md"
+                      ? "border-[#143d59] shadow-md"
                       : "border-gray-300"
                   }`}
                   placeholder=" "
@@ -168,7 +216,7 @@ const ContactUsSection = () => {
                   htmlFor="email"
                   className={`absolute left-4 transition-all duration-300 pointer-events-none ${
                     focusedField === "email" || formData.email
-                      ? "text-xs text-blue-700 -top-2 bg-white px-1"
+                      ? "text-xs text-[#143d59] -top-2 bg-white px-1"
                       : "text-gray-500 top-3"
                   }`}
                 >
@@ -188,7 +236,7 @@ const ContactUsSection = () => {
                   required
                   className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none ${
                     focusedField === "subject"
-                      ? "border-blue-700 shadow-md"
+                      ? "border-[#143d59] shadow-md"
                       : "border-gray-300"
                   }`}
                   placeholder=" "
@@ -197,7 +245,7 @@ const ContactUsSection = () => {
                   htmlFor="subject"
                   className={`absolute left-4 transition-all duration-300 pointer-events-none ${
                     focusedField === "subject" || formData.subject
-                      ? "text-xs text-blue-700 -top-2 bg-white px-1"
+                      ? "text-xs text-[#143d59] -top-2 bg-white px-1"
                       : "text-gray-500 top-3"
                   }`}
                 >
@@ -217,7 +265,7 @@ const ContactUsSection = () => {
                   rows="4"
                   className={`w-full px-4 py-3 rounded-lg border bg-white transition-all duration-300 outline-none resize-none ${
                     focusedField === "message"
-                      ? "border-blue-700 shadow-md"
+                      ? "border-[#143d59] shadow-md"
                       : "border-gray-300"
                   }`}
                   placeholder=" "
@@ -226,7 +274,7 @@ const ContactUsSection = () => {
                   htmlFor="message"
                   className={`absolute left-4 transition-all duration-300 pointer-events-none ${
                     focusedField === "message" || formData.message
-                      ? "text-xs text-blue-700 -top-2 bg-white px-1"
+                      ? "text-xs text-[#143d59] -top-2 bg-white px-1"
                       : "text-gray-500 top-3"
                   }`}
                 >
@@ -237,7 +285,7 @@ const ContactUsSection = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full px-6 mb-8 py-3 bg-blue-700 text-white font-medium rounded-lg shadow-md hover:bg-[#BBA14E] focus:outline-none focus:ring-2 focus:ring-[#1974B8] focus:ring-opacity-50 transform transition-all duration-300 hover:cursor-pointer hover:shadow-lg"
+                  className="w-full px-6 mb-8 py-3 bg-[#143d59] text-white font-medium rounded-lg shadow-md hover:bg-[#f4b41a] focus:outline-none focus:ring-2 focus:ring-[#1974B8] focus:ring-opacity-50 transform transition-all duration-300 hover:cursor-pointer hover:shadow-lg"
                 >
                   {t("sendMessage")}
                 </button>

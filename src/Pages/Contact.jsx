@@ -15,10 +15,10 @@ const Contact = () => {
     <div className="w-full lg:h-[80vh] md:h-[80vh] sm:h-[70vh] h-[70vh] rounded-t-4xl absolute bottom-0 bg-white">
       <div className="w-full h-screen z-[-100] absolute bottom-0 ">
         <Iridescence
-          color={[0, 0, 0.8]}
-          mouseReact={true}
-          amplitude={0.1}
-          speed={1.0}
+          color={[0.0, 0.04, 0.2]}
+          mouseReact={false}
+          amplitude={0.5}
+          speed={4.0}
         />
       </div>
       <section className="w-full h-screen z-100">

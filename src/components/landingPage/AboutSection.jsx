@@ -13,7 +13,7 @@ const AboutSection = () => {
           {/* Left Content */}
           <div className="w-full md:w-1/2 ltr:text-left rtl:text-right mb-6 md:mb-0">
             <motion.h2
-              className="text-xl md:text-4xl lg:text-4xl font-bold sm:text-lg mt-10  text-blue-700 mb-4 tracking-wider"
+              className="text-xl md:text-4xl lg:text-4xl font-bold sm:text-lg mt-10  text-[#143d59] mb-4 tracking-wider"
               initial={{ y: 60, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -31,7 +31,7 @@ const AboutSection = () => {
             </motion.p>
 
             <motion.button
-              className="px-4 py-2 mt-6 text-sm md:text-base font-semibold text-blue-700 bg-transparent border-2 border-blue-700   transition-all hover:bg-[#BBA14E] hover:border-[#BBA14E] cursor-pointer hover:text-white focus:outline-none"
+              className="px-4 py-2 mt-6 text-sm md:text-base font-semibold text-[#143d59] bg-transparent border-2 border-[#143d59]   transition-all hover:bg-[#f4b41a] hover:border-[#f4b41a] cursor-pointer hover:text-white focus:outline-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}

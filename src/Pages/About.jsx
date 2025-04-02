@@ -36,10 +36,10 @@ const About = () => {
     <div className="w-full lg:h-[80vh] h-[70vh]  bg-white absolute bottom-0 rounded-t-4xl">
       <div className="w-full h-screen z-[-100] absolute bottom-0">
         <Iridescence
-          color={[0, 0, 0.8]}
-          mouseReact={true}
-          amplitude={0.1}
-          speed={1.0}
+          color={[0.0, 0.04, 0.2]}
+          mouseReact={false}
+          amplitude={0.5}
+          speed={4.0}
         />
       </div>
       {/* Our Company Section */}
@@ -59,7 +59,7 @@ const About = () => {
               viewport={{ once: true }}
               className="flex gap-10 items-center mb-4"
             >
-              <h1 className="lg:text-4xl text-2xl font-bold text-blue-700">
+              <h1 className="lg:text-4xl text-2xl font-bold text-[#143d59]">
                 {t("aboutOptimum")}
               </h1>
             </motion.div>
@@ -75,20 +75,20 @@ const About = () => {
           </div>
           <div className="lg:flex justify-between text-black/70 gap-18 text-center mt-8">
             <div className=" p-6 rounded-2xl flex flex-col  justify-center items-center ">
-              <div className="text-3xl bg-blue-500 p-6 text-white rounded-full my-8">
+              <div className="text-3xl bg-[#143d59] p-6 text-white rounded-full my-8">
                 <CgSearchFound />
               </div>
 
               <p>{t("about1")}</p>
             </div>
             <div className=" p-6 rounded-2xl flex flex-col justify-center items-center">
-              <div className="text-3xl bg-blue-500 p-6 text-white rounded-full my-8">
+              <div className="text-3xl bg-[#143d59] p-6 text-white rounded-full my-8">
                 <FaStar />
               </div>
               <p>{t("about2")}</p>
             </div>
             <div className="  p-6 rounded-2xl flex flex-col justify-center items-center">
-              <div className="text-3xl bg-blue-500 p-6 text-white rounded-full my-8">
+              <div className="text-3xl bg-[#143d59] p-6 text-white rounded-full my-8">
                 <PiBuildingsFill />
               </div>
               <p>{t("about3")}</p>
@@ -108,7 +108,7 @@ const About = () => {
         <div className="lg:flex flex flex-col lg:flex-row  w-[80vw] m-auto  gap-20 justify-center items-center">
           {/* Our Vision */}
           <div className="">
-            <motion.div className="w-[350px]  hover:shadow-xl shadow-blue-700/20 transition-all duration-300 bg-blue-50 flex flex-col items-center justify-center  p-8 rounded-2xl">
+            <motion.div className="w-[350px]  hover:shadow-xl shadow-[#143d59]/20 transition-all duration-300 bg-blue-50 flex flex-col items-center justify-center  p-8 rounded-2xl">
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -129,7 +129,7 @@ const About = () => {
                 viewport={{ once: true }}
                 className="  p-4"
               >
-                <h2 className="text-xl my-3 font-semibold text-blue-700">
+                <h2 className="text-xl my-3 font-semibold text-[#143d59]">
                   {t("ourVision")}
                 </h2>
                 <p className="text-left">{t("ourVisionDescription")}</p>
@@ -138,7 +138,7 @@ const About = () => {
           </div>
           {/* Our  Mission */}
           <div className="">
-            <motion.div className="w-[350px] hover:shadow-xl shadow-blue-700/20 transition-all duration-300 bg-blue-50 flex flex-col items-center justify-center  p-8 rounded-2xl">
+            <motion.div className="w-[350px] hover:shadow-xl shadow-[#143d59]/20 transition-all duration-300 bg-blue-50 flex flex-col items-center justify-center  p-8 rounded-2xl">
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -159,7 +159,7 @@ const About = () => {
                 viewport={{ once: true }}
                 className="  p-4"
               >
-                <h2 className="text-xl my-3 font-semibold text-blue-700">
+                <h2 className="text-xl my-3 font-semibold text-[#143d59]">
                   {t("ourMission")}
                 </h2>
                 <p className="text-left">{t("ourMissionDescription")}</p>
@@ -189,7 +189,7 @@ const About = () => {
                 viewport={{ once: true }}
                 className="p-4 "
               >
-                <h2 className="text-2xl my-3 text-center lg:text-left md:text-left sm:text-center font-semibold text-blue-700">
+                <h2 className="text-2xl my-3 text-center lg:text-left md:text-left sm:text-center font-semibold text-[#143d59]">
                   {t("ourValues")}
                 </h2>
                 <ul className=" flex flex-col gap-8 p-4 text-md my-8 text-justify">
@@ -231,8 +231,8 @@ const About = () => {
       </motion.section>
       <motion.section className="h-screen lg:flex lg:flex-col  lg:justify-center  w-full">
         <motion.div className="lg:flex lg:items-center lg:justify-center">
-          <div className="w-full absolute bg-[#BAA04E] h-screen lg:h-[30vh] z-[-100]"></div>
-          <motion.div className="lg:flex  lg:w-[80vw] w-full lg:h-[60vh] lg:items-center bg-blue-700 overflow-hidden  justify-evenly ">
+          <div className="w-full absolute bg-[#f4b41a] h-screen lg:h-[30vh] z-[-100]"></div>
+          <motion.div className="lg:flex  lg:w-[80vw] w-full lg:h-[60vh] lg:items-center bg-[#143d59] overflow-hidden  justify-evenly ">
             <motion.div className="flex flex-col text-white px-8  items-left justify-center  lg:text-left md:text-left sm:text-center text-center  ">
               <h2 className="text-2xl font-semibold  my-4">
                 {t("whatSetUsApart")}
@@ -256,7 +256,7 @@ const About = () => {
         <motion.div className="w-[80vw] m-auto flex items-center justify-center ">
           <motion.div className="flex items-center justify-center lg:gap-8  flex-col text-black/70">
             <div className="flex flex-col items-center">
-              <h1 className="lg:text-4xl text-2xl mb-2 font-semibold text-blue-700">
+              <h1 className="lg:text-4xl text-2xl mb-2 font-semibold text-[#143d59]">
                 {t("IndustriesWeServe")}
               </h1>
               <p className="w-full text-xl text-center ">
@@ -308,8 +308,8 @@ const About = () => {
       <motion.section className="h-screen  flex items-center justify-center ">
         <div className="lg:w-[80vw] gap-12  lg:flex  lg:mt-0 items-center m-auto">
           <div className="w-full relative ">
-            <div className="bg-blue-500 absolute lg:w-[50vw] z-[-10] h-[10vh]"></div>
-            <div className="bg-[#bba14e] absolute bottom-0 w-[60vw] h-[10vh]"></div>
+            <div className="bg-[#143d59] absolute lg:w-[50vw] z-[-10] h-[10vh]"></div>
+            <div className="bg-[#f4b41a] absolute bottom-0 w-[60vw] h-[10vh]"></div>
             <div className="lg:w-full lg:h-full   rounded-tr-4xl flex items-center justify-center   overflow-hidden">
               <img
                 src={Saudization}
@@ -319,7 +319,7 @@ const About = () => {
             </div>
           </div>
           <div className="w-full  justify-center items-center  lg:p-0 p-6">
-            <h2 className="lg:text-2xl text-xl lg:text-left text-center font-semibold text-blue-500 mb-4">
+            <h2 className="lg:text-2xl text-xl lg:text-left text-center font-semibold text-[#143d59] mb-4">
               {t("commitmenttoSaudization&Compliance")}
             </h2>
             <p className="lg:text-left text-center">

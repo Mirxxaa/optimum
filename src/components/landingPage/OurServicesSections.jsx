@@ -216,7 +216,7 @@ const OurServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl  md:text-4xl  text-blue-700 font-semibold tracking-wider text-center"
+            className="text-3xl  md:text-4xl  text-[#143d59] font-semibold tracking-wider text-center"
           >
             {t("ourServices")}
           </motion.h2>
@@ -261,7 +261,7 @@ const OurServicesSection = () => {
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className="w-full lg:w-[400px] md:w-[360px] sm:w-[320px] lg:min-w-[320px] md:min-w-[280px] sm:min-w-[240px] flex-none select-none bg-blue-700 hover:bg-[#BBA14E] rounded-4xl overflow-hidden transition-all duration-500 ease-out"
+                  className="w-full lg:w-[400px] md:w-[360px] sm:w-[320px] lg:min-w-[320px] md:min-w-[280px] sm:min-w-[240px] flex-none select-none bg-[#143d59] hover:bg-[#f4b41a] rounded-4xl overflow-hidden transition-all duration-500 ease-out"
                 >
                   <div className="relative h-64 overflow-hidden select-none">
                     <img
@@ -339,7 +339,7 @@ const OurServicesSection = () => {
             <div className="flex justify-center gap-4 mt-8">
               <button
                 onClick={scrollLeftHandler}
-                className="w-12 h-12 rounded-full bg-blue-700 text-white flex items-center justify-center shadow-md hover:bg-[#BBA14E] cursor-pointer transition-all duration-300 ease-out hover:scale-110 focus:outline-none"
+                className="w-12 h-12 rounded-full bg-[#143d59] text-white flex items-center justify-center shadow-md hover:bg-[#f4b41a] cursor-pointer transition-all duration-300 ease-out hover:scale-110 focus:outline-none"
                 aria-label="Previous"
               >
                 <svg
@@ -357,7 +357,7 @@ const OurServicesSection = () => {
               </button>
               <button
                 onClick={scrollRightHandler}
-                className="w-12 h-12 rounded-full bg-blue-700 text-white flex items-center justify-center shadow-md hover:bg-[#BBA14E] cursor-pointer transition-all duration-300 ease-out hover:scale-110 focus:outline-none"
+                className="w-12 h-12 rounded-full bg-[#143d59] text-white flex items-center justify-center shadow-md hover:bg-[#f4b41a] cursor-pointer transition-all duration-300 ease-out hover:scale-110 focus:outline-none"
                 aria-label="Next"
               >
                 <svg

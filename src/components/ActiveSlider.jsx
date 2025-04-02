@@ -88,13 +88,13 @@ const ActiveSlider = () => {
                 style={{ backgroundImage: `url(${service.image})` }}
               />
               {/* Blue overlay fading from top */}
-              <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-transparent opacity-40" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#143d59] to-transparent opacity-40" />
               <div className="absolute inset-0 bg-black opacity-10 group-hover:opacity-50" />
               <div className="relative flex flex-col gap-3">
                 <h1 className="text-xl lg:text-2xl">{service.title}</h1>
                 <p className="lg:text-[18px]">{service.description}</p>
               </div>
-              <RxArrowTopRight className="absolute bottom-5 left-5 w-[35px] h-[35px] text-white group-hover:text-blue-500 group-hover:rotate-45 duration-100" />
+              <RxArrowTopRight className="absolute bottom-5 left-5 w-[35px] h-[35px] text-white group-hover:text-[#143d59] group-hover:rotate-45 duration-100" />
             </div>
           </SwiperSlide>
         ))}

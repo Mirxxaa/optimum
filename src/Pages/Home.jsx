@@ -149,7 +149,9 @@ const Home = () => {
             <button
               key={index}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentSection === index ? "bg-blue-700 w-3 h-3" : "bg-gray-400"
+                currentSection === index
+                  ? "bg-[#143d59] w-3 h-3"
+                  : "bg-gray-400"
               }`}
               onClick={() => setCurrentSection(index)}
               aria-label={`Go to ${section.name} section`}
@@ -163,7 +165,7 @@ const Home = () => {
   return (
     <>
       {/* Navbar - only show after first section */}
-      {currentSection > 0 && <Navbar showNavbar={true} />}
+      {currentSection > 0 && <Navbar showNavbar={false} />}
 
       {/* Dot Navigation */}
       {renderDotNavigation()}

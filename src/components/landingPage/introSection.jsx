@@ -13,7 +13,7 @@ const IntroSection = () => {
     <div className="h-screen w-full flex flex-col justify-center ">
       <div className=" w-[80vw] h-screen flex items-center z-2  m-auto">
         <div className="w-full p-8 flex flex-col items-center justify-center ">
-          <h1 className="md:text-3xl text-2xl lg:text-3xl mb-6 font-semibold text-center text-white  ">
+          <h1 className="md:text-3xl text-2xl lg:text-3xl mb-6 font-semibold text-center text-[#f4b41a]  ">
             {t("welcomeMessagage")}
           </h1>
 
@@ -21,7 +21,7 @@ const IntroSection = () => {
             {t("welcomeText")}
           </p>
 
-          <button className="text-left my-4 px-4 border-1 border-white duration-200 text-white hover:bg-white w-fit py-2 hover:text-[#1974B7] font-semibold cursor-pointer">
+          <button className="text-left my-4 px-4 border-1 border-white hover:border-[#f4b41a] duration-200 text-white hover:bg-[#f4b41a] w-fit py-2 hover:text-[#143d59] font-semibold cursor-pointer">
             {t("exploreMore")}
           </button>
         </div>
@@ -44,10 +44,10 @@ const IntroSection = () => {
       </div>
       <div className="w-full h-screen absolute z-1 ">
         <Iridescence
-          color={[0, 0, 0.8]}
-          mouseReact={true}
-          amplitude={0.1}
-          speed={1.0}
+          color={[0.0, 0.04, 0.2]}
+          mouseReact={false}
+          amplitude={0.5}
+          speed={4.0}
         />
       </div>
     </div>

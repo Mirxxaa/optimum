@@ -11,7 +11,7 @@ const FooterSection = () => {
   const { t } = useTranslation();
   return (
     <div>
-      <footer className="bg-blue-700 text-white py-10 px-6 md:px-16">
+      <footer className="bg-[#143d59] text-white py-10 px-6 md:px-16">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between space-y-10 md:space-y-0">
           {/* Logo & Social Icons Section */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/3">
@@ -62,7 +62,7 @@ const FooterSection = () => {
               />
               <button
                 type="submit"
-                className="bg-white text-blue-700 py-3 px-6 rounded-lg font-bold hover:bg-[#BBA14E] hover:text-white transition duration-300"
+                className="bg-white text-[#143d59] py-3 px-6 rounded-lg font-bold hover:bg-[#f4b41a] cursor-pointer hover:text-white transition duration-300"
               >
                 {t("subscribe")}
               </button>
@@ -72,7 +72,7 @@ const FooterSection = () => {
       </footer>
 
       {/* Footer Bottom */}
-      <div className="text-center text-sm p-4 bg-blue-700 text-white">
+      <div className="text-center text-sm p-4 bg-[#143d59] text-white">
         {t("allRightReserved")}
       </div>
     </div>

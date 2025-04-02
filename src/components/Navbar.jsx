@@ -61,10 +61,10 @@ const NavigationBar = ({ showNavbar = false }) => {
       {/* Main navigation bar */}
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 lg:px-18 md:px-12 sm:px-8 px-8 py-8 flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "bg-blue-700" : "bg-transparent"
+          scrolled ? "bg-[#143d59]" : "bg-transparent"
         }`}
         style={{
-          backgroundColor: scrolled ? "#1d4ed8" : "transparent",
+          backgroundColor: scrolled ? "#143d59" : "transparent",
           boxShadow: scrolled
             ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
             : "none",
@@ -91,8 +91,8 @@ const NavigationBar = ({ showNavbar = false }) => {
               <span
                 className={`${
                   scrolled
-                    ? "text-white group-hover:text-[#CEB775]"
-                    : "text-white group-hover:text-[#BAA04E]"
+                    ? "text-white group-hover:text-[#f4b41a]"
+                    : "text-white group-hover:text-[#f4b41a]"
                 } transition-colors duration-300`}
               >
                 {link.name}
@@ -110,7 +110,7 @@ const NavigationBar = ({ showNavbar = false }) => {
               {/* Hover indicator - shows on hover unless already active */}
               <motion.div
                 className={`absolute bottom-0 left-0 h-0.5 ${
-                  scrolled ? "bg-[#CEB775]" : "bg-[#BAA04E]"
+                  scrolled ? "bg-[#f4b41a]" : "bg-[#f4b41a]"
                 } w-0 opacity-0 group-hover:opacity-100 group-hover:w-full transition-all duration-300`}
                 initial={false}
                 animate={{
@@ -192,7 +192,7 @@ const NavigationBar = ({ showNavbar = false }) => {
                       <motion.svg
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="w-4 h-4 text-blue-600"
+                        className="w-4 h-4 text-[#143d59]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -281,13 +281,13 @@ const NavigationBar = ({ showNavbar = false }) => {
                       <RouterLink
                         to={link.url}
                         onClick={() => setIsOpen(false)}
-                        className="text-gray-800 hover:text-blue-700 font-medium text-lg block pb-2"
+                        className="text-gray-800 hover:text-[#143d59] font-medium text-lg block pb-2"
                       >
                         {link.name}
                         {/* Active indicator for mobile menu */}
                         {location.pathname === link.url && (
                           <motion.div
-                            className="absolute bottom-0 left-0 h-0.5 bg-blue-700 w-full"
+                            className="absolute bottom-0 left-0 h-0.5 bg-[#143d59] w-full"
                             initial={{ width: 0 }}
                             animate={{ width: "100%" }}
                             transition={{ duration: 0.3 }}
@@ -313,7 +313,7 @@ const NavigationBar = ({ showNavbar = false }) => {
                         <motion.svg
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          className="w-4 h-4 text-blue-600"
+                          className="w-4 h-4 text-[#143d59]"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"

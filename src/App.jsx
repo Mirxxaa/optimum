@@ -7,6 +7,7 @@ import Contact from "./Pages/Contact.jsx";
 import Services from "./Pages/Services.jsx";
 import Careers from "./Pages/Careers.jsx";
 import Navbar from "./components/Navbar";
+import Jobs from "./Pages/jobs.jsx";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/services" element={<Services />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/jobs" element={<Jobs />} />
           {/* Add other routes as needed */}
         </Routes>
       </ScrollProvider>

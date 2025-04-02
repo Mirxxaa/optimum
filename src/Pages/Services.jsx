@@ -15,6 +15,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import Iridescence from "../components/Iridescence";
 import FooterSection from "../components/landingPage/FooterSection";
 import { useTranslation } from "react-i18next";
+import OurServicesSections from "../components/landingPage/OurServicesSections";
 
 const Services = () => {
   const { t } = useTranslation();
@@ -27,18 +28,18 @@ const Services = () => {
     <div className="w-full lg:h-[80vh] h-[70vh]  bg-white absolute bottom-0 rounded-t-4xl">
       <div className="w-full h-screen z-[-100] absolute bottom-0 ">
         <Iridescence
-          color={[0, 0, 0.8]}
-          mouseReact={true}
-          amplitude={0.1}
-          speed={1.0}
+          color={[0.0, 0.04, 0.2]}
+          mouseReact={false}
+          amplitude={0.5}
+          speed={4.0}
         />
       </div>
       <section className="h-full">
-        <div className="w-[80vw] m-auto  h-screen flex flex-col mt-10 gap-10 ">
-          <div className="w-full flex flex-col items-center justify-center">
+        <div className="w-[80vw]  ">
+          {/* <div className="w-full flex flex-col items-center justify-center">
             <div className="flex items-center text-center justify-center">
               <motion.h2
-                className="text-3xl md:text-4xl text-blue-700 font-semibold mb-4 tracking-wider"
+                className="text-3xl md:text-4xl text-[#143d59] font-semibold mb-4 tracking-wider"
                 initial={{ y: 60, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -55,19 +56,21 @@ const Services = () => {
               {t("ourServiceDescription")}
             </motion.p>
           </div>
-          <div className="h-[300px] bg-blue-700 rounded-t-4xl ">
+          <div className="h-[300px] bg-[#143d59] rounded-t-4xl ">
             <ServicesCardSlider />
-          </div>
+          </div> */}
+
+          <OurServicesSections />
         </div>
       </section>
       <section className="lg:my-20 md:my-20 sm:my-10 my-25 ">
-        <div className="w-80 h-80 z-[-10]  opacity-5 bg-blue-700 absolute rounded-full left-0 t-0 "></div>
+        <div className="w-80 h-80 z-[-10]  opacity-5 bg-[#143d59] absolute rounded-full left-0 t-0 "></div>
 
         <div className="h-auto  w-[80vw] m-auto">
           <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 px-4 md:px-8 lg:px-12">
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col">
-              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700 text-center lg:text-left">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-[#143d59] text-center lg:text-left">
                 {t("professionalServices")}
               </h3>
               <p className="text-sm sm:text-base text-center lg:text-justify leading-relaxed text-gray-700">
@@ -100,7 +103,7 @@ const Services = () => {
 
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col">
-              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700 text-center lg:text-left">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-[#143d59] text-center lg:text-left">
                 {t("manpowerSolutions")}
               </h3>
               <p className="text-sm sm:text-base text-center lg:text-justify leading-relaxed text-gray-700">
@@ -112,7 +115,7 @@ const Services = () => {
           <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 px-4 md:px-8 lg:px-12 my-10">
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
-              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-[#143d59]">
                 {t("executiveRecruitment")}
               </h3>
               <p className="text-sm sm:text-base leading-relaxed text-gray-700">
@@ -144,7 +147,7 @@ const Services = () => {
 
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
-              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-[#143d59]">
                 {t("recruitmentAsAService")}
               </h3>
               <p className="text-sm sm:text-base leading-relaxed text-gray-700">
@@ -156,7 +159,7 @@ const Services = () => {
           <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 px-4 md:px-8 lg:px-12 my-10">
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
-              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-[#143d59]">
                 {t("talentAssessment")}
               </h3>
               <p className="text-sm sm:text-base leading-relaxed text-gray-700">
@@ -186,7 +189,7 @@ const Services = () => {
 
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
-              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-[#143d59]">
                 {t("payrollAsAService")}
               </h3>
               <p className="text-sm sm:text-base leading-relaxed text-gray-700">
@@ -197,7 +200,7 @@ const Services = () => {
         </div>
       </section>
       <section>
-        <div className="w-full max-h-[300px] h-[200px] my-20 bg-[#BBA14E] flex items-center justify-center">
+        {/* <div className="w-full max-h-[300px] h-[200px] my-20 bg-[#f4b41a] flex items-center justify-center">
           <div className="flex flex-col gap-4 ">
             <h3 className="text-4xl font-semibold text-white">
               {t("connectWithUs")}
@@ -210,7 +213,7 @@ const Services = () => {
               {t("connectWithUs")}
             </button>
           </div>
-        </div>
+        </div> */}
       </section>
       <section>
         <FooterSection />
