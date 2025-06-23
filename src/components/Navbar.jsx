@@ -182,11 +182,14 @@ const NavigationBar = ({ showNavbar = false }) => {
                 className="absolute mt-2 py-2 w-40 bg-white rounded-md shadow-lg z-50 ltr:right-0 rtl:left-0"
               >
                 {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => changeLanguage(lang.code)}
-                    className="w-full text-left px-4 py-2 text-gray-800 hover:bg-blue-50 flex items-center justify-between"
-                  >
+                 <button
+    key={lang.code}
+    onClick={() => {
+      changeLanguage(lang.code);
+      setIsLangMenuOpen(false); // Close dropdown on selection
+    }}
+    className="w-full cursor-pointer text-left px-4 py-2 text-gray-800  hover:bg-blue-50 flex items-center justify-between"
+  >
                     <span>{lang.name}</span>
                     {i18n.language === lang.code && (
                       <motion.svg
