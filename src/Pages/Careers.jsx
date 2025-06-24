@@ -57,7 +57,7 @@ const Careers = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/applications",
+        "https://optimum-server-iqif.onrender.com/applications",
         formDataToSend,
         {
           headers: {

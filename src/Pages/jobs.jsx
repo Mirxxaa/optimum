@@ -5,6 +5,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { PiBagSimpleFill } from "react-icons/pi";
 import { FaShareAlt } from "react-icons/fa";
 import axios from "axios";
+import CareersApplicationForm from "../components/CareersApplicationForm";
 
 const JobsPage = () => {
   const [jobs, setJobs] = useState([]);
@@ -15,6 +16,9 @@ const JobsPage = () => {
   });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+
+
 
   // Helper function to capitalize the first letter of a string
   const capitalizeFirstLetter = (string) => {
@@ -36,7 +40,8 @@ const JobsPage = () => {
     const fetchJobs = async () => {
       try {
         // Adjust the URL to match your backend
-        const response = await axios.get("http://localhost:5000/jobs/all-jobs");
+      const response = await axios.get("https://optimum-server-iqif.onrender.com/jobs/all-jobs");
+
 
         // Capitalize job names and other relevant fields
         const formattedJobs = response.data.map((job) => ({
@@ -211,100 +216,120 @@ const JobsPage = () => {
               </div>
             </div>
 
-            {/* Job Details */}
-            <div className="lg:w-3/5">
-              {selectedJob ? (
-                <div className="bg-white rounded-lg shadow-md p-6 sticky overflow-y-scroll h-screen  top-8">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h2 className="text-2xl font-bold text-[#143d59]">
-                        {selectedJob.jobName}
-                      </h2>
-                      <p className="text-lg text-gray-700">
-                        {selectedJob.company}
-                      </p>
-                    </div>
-                    <button className="bg-[#143d59] hover:bg-[#f4b41a] cursor-pointer font-semibold text-white py-2 px-6 rounded-md transition-colors">
-                      Apply Now
-                    </button>
-                  </div>
+        {/* Job Details */}
+<div className="lg:w-3/5">
+  {selectedJob ? (
+    <div className="bg-white rounded-lg shadow-md p-6 sticky overflow-y-scroll h-screen top-8">
+      <div className="flex justify-between items-start mb-4">
+        <div>
+          <h2 className="text-2xl font-bold text-[#143d59]">{selectedJob.jobName}</h2>
+          <p className="text-lg text-gray-700">{selectedJob.company}</p>
+        </div>
+        <button
+          onClick={() => setShowForm(true)}
+          className="bg-[#143d59] hover:bg-[#f4b41a] cursor-pointer font-semibold text-white py-2 px-6 rounded-md transition-colors"
+        >
+          Apply Now
+        </button>
+      </div>
 
-                  <div className="flex flex-wrap gap-4 mb-6">
-                    <div className="flex items-center text-gray-600">
-                      <FaLocationDot />
-                      {selectedJob.location}
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <PiBagSimpleFill />
-                      {selectedJob.jobType}
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <div className="mr-1">SAR</div>
-                      {selectedJob.salaryRange}
-                    </div>
-                  </div>
+      <div className="flex flex-wrap gap-4 mb-6 text-sm text-gray-600">
+        <div className="flex items-center">
+          <FaLocationDot className="mr-1" /> {selectedJob.location}
+        </div>
+        <div className="flex items-center">
+          <PiBagSimpleFill className="mr-1" /> {selectedJob.jobType}
+        </div>
+        <div className="flex items-center">
+          <span className="mr-1">SAR</span> {selectedJob.salaryRange}
+        </div>
+      </div>
 
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold mb-2">Description</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      {selectedJob.description}
-                    </p>
-                  </div>
+      <div className="mb-6">
+        <h3 className="text-lg font-semibold mb-2">Description</h3>
+        <p className="text-gray-700 leading-relaxed">{selectedJob.description}</p>
+      </div>
 
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold mb-2">Requirements</h3>
-                    <ul className="list-disc list-inside text-gray-700 text-sm space-y-1">
-                      {selectedJob.requirements
-                        .filter((req) => req.trim() !== "") // Remove empty requirements
-                        .map((req, index) => (
-                          <li key={index}>{req}</li>
-                        ))}
-                    </ul>
-                  </div>
+      <div className="mb-6">
+        <h3 className="text-lg font-semibold mb-2">Requirements</h3>
+        <ul className="list-disc list-inside text-gray-700 text-sm space-y-1">
+          {selectedJob.requirements
+            .filter((req) => req.trim() !== "")
+            .map((req, index) => (
+              <li key={index}>{req}</li>
+            ))}
+        </ul>
+      </div>
 
-                  <div className="border-t border-gray-200 pt-6 flex justify-between items-center">
-                    <div>
-                      <p className="text-gray-500">
-                        Posted {formatDate(selectedJob.createdAt)}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        Job ID: {selectedJob.jobId}
-                      </p>
-                    </div>
-                    <div className="flex space-x-2">
-                      <button className="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
-                        <FaShareAlt />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center text-center h-64">
-                  <div className="text-[#143d59] mb-4">
-                    <svg
-                      className="w-12 h-12 mx-auto"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">
-                    Select a job to view details
-                  </h3>
-                  <p className="text-gray-600">
-                    Click on any job from the list to see more information
-                  </p>
-                </div>
-              )}
-            </div>
+      <div className="border-t border-gray-200 pt-6 flex justify-between items-center">
+        <div>
+          <p className="text-gray-500">Posted {formatDate(selectedJob.createdAt)}</p>
+          <p className="text-sm text-gray-500">Job ID: {selectedJob.jobId}</p>
+        </div>
+        <div className="flex space-x-2">
+          <button className="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+            <FaShareAlt />
+          </button>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center text-center h-64">
+      <svg
+        className="w-12 h-12 text-[#143d59] mb-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2 2v10a2 2 0 002 2z"
+        />
+      </svg>
+      <h3 className="text-xl font-semibold mb-2">Select a job to view details</h3>
+      <p className="text-gray-600">Click on any job from the list to see more information</p>
+    </div>
+  )}
+
+  {/* Popup Modal for Application Form */}
+  {showForm && (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      {/* Backdrop */}
+      <div 
+        className="absolute inset-0 bg-black/50  backdrop-blur-sm"
+        onClick={() => setShowForm(false)}
+      ></div>
+      
+      {/* Modal Content */}
+      <div className="relative bg-white rounded-lg shadow-2xl w-full max-w-md mx-4 max-h-[90vh] overflow-hidden md:max-w-lg lg:max-w-xl">
+        {/* Modal Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-[#143d59] text-white">
+          <h3 className="text-lg font-semibold">Apply for {selectedJob?.jobName}</h3>
+          <button
+            onClick={() => setShowForm(false)}
+            className="text-white hover:text-gray-300 transition-colors p-1 rounded-full hover:bg-white hover:bg-opacity-20"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        
+        {/* Modal Body - Scrollable */}
+        <div className="overflow-y-auto max-h-[calc(90vh-120px)]">
+          <CareersApplicationForm
+            selectedJob={selectedJob}
+            onClose={() => setShowForm(false)}
+            isModal={true}
+          />
+        </div>
+      </div>
+    </div>
+  )}
+</div>
           </div>
         </main>
       </div>
