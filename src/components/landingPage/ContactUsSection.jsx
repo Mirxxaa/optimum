@@ -39,7 +39,7 @@ const ContactUsSection = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/messages/add",
+        "https://optimum-server-iqif.onrender.com/messages/add",
         formData
       );
       console.log("Message sent successfully:", response.data);
